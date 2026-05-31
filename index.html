@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modul Ringkasan Matematika — Trigonometri</title>
+<title>Matematika Semester 2 — Trigonometri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -247,6 +247,425 @@ body.focus-mode .navbar { background: rgba(255,255,255,0.98); border-color: #f0f
   .data-table { font-size: 0.85rem; }
   .data-table th, .data-table td { padding: 10px 8px; }
 }
+
+/* ================================
+   Mobile Perfect Patch + Learning UI
+   Ditambahkan agar halaman pas di HP, ringan, dan tidak kepotong.
+================================ */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+main, section, .section, .hero, .hero-container, .card, .card-body,
+.grid-2, .grid-3, .example-card, .steps, .step-card, .rangkuman-list,
+.rangkuman-item, .diagram-box, .math-scroll {
+  min-width: 0;
+  max-width: 100%;
+}
+p, li, span, strong, .card-body, .step-content, .meta-box span {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.math-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-inline: contain;
+}
+.math-scroll mjx-container {
+  max-width: none !important;
+}
+.math-scroll svg {
+  max-width: none !important;
+}
+.card,
+.step-card,
+.meta-box,
+.rangkuman-item {
+  overflow: hidden;
+}
+.step-content {
+  min-width: 0;
+  width: 100%;
+}
+.lesson-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+.lesson-flow .flow-card {
+  background: #fffafa;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+}
+.lesson-flow .flow-card strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+.decision-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.decision-card h4 {
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.decision-card p {
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.decision-card .rumus-pill {
+  display: inline-block;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 800;
+}
+.study-steps {
+  counter-reset: study;
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+.study-step {
+  counter-increment: study;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 16px 16px 58px;
+  position: relative;
+}
+.study-step::before {
+  content: counter(study);
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
+.study-step strong {
+  color: var(--text);
+}
+.study-step p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+.mobile-tip {
+  background: linear-gradient(135deg, var(--primary-soft), #ffffff);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--primary);
+  border-radius: 18px;
+  padding: 18px;
+  color: var(--muted);
+}
+.mobile-tip strong {
+  color: var(--primary-dark);
+}
+@media (hover: none) and (pointer: coarse) {
+  .card:hover,
+  .step-card:hover,
+  .btn-primary:hover,
+  #back-to-top:hover {
+    transform: none !important;
+    box-shadow: 0 4px 24px var(--shadow);
+  }
+}
+@media (prefers-reduced-motion: reduce), (max-width: 760px) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+@media (max-width: 720px) {
+  :root {
+    --nav-height: 64px;
+    --radius: 18px;
+    --radius-sm: 14px;
+  }
+  body {
+    line-height: 1.62;
+    overflow-x: hidden;
+  }
+  .navbar-container {
+    padding: 0 12px;
+  }
+  .nav-logo {
+    font-size: .95rem;
+    gap: 7px;
+    max-width: calc(100vw - 118px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .nav-logo i {
+    font-size: 1.08rem;
+  }
+  .btn-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+  }
+  .nav-links {
+    left: 10px;
+    right: 10px;
+    top: calc(var(--nav-height) + 6px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 10px;
+    max-height: min(68vh, 520px);
+    overflow-y: auto;
+  }
+  .hero {
+    padding: 42px 14px 34px;
+  }
+  .hero-container {
+    gap: 18px;
+    text-align: left;
+  }
+  .hero-badge {
+    font-size: .74rem;
+    padding: 6px 11px;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(1.65rem, 9vw, 2.3rem);
+    line-height: 1.12;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero-desc {
+    font-size: .92rem;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 16px;
+    border-radius: 14px;
+  }
+  .hero-visual {
+    display: none;
+  }
+  .hero-bg-decor {
+    display: none;
+  }
+  .section {
+    padding: 44px 13px;
+  }
+  .section-header {
+    margin-bottom: 24px;
+  }
+  .section-tag {
+    font-size: .68rem;
+    padding: 5px 10px;
+  }
+  .section h2 {
+    font-size: clamp(1.32rem, 6vw, 1.75rem);
+    line-height: 1.22;
+  }
+  .section-desc {
+    font-size: .92rem;
+  }
+  .grid-2,
+  .grid-3,
+  .example-meta,
+  .lesson-flow,
+  .decision-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+  .card {
+    padding: 18px;
+    margin-bottom: 16px;
+    border-radius: 18px;
+    box-shadow: 0 2px 14px rgba(153, 27, 27, 0.08);
+  }
+  .card-title {
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    font-size: .95rem;
+  }
+  .card-body {
+    font-size: .93rem;
+  }
+  .card-body ul {
+    margin-left: 16px;
+  }
+  .card-body li {
+    margin-bottom: 7px;
+  }
+  .example-header {
+    margin: -18px -18px 16px -18px;
+    padding: 14px 18px;
+    border-radius: 18px 18px 0 0;
+    font-size: .98rem;
+  }
+  .meta-box {
+    padding: 12px 13px;
+    border-radius: 13px;
+  }
+  .steps {
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .step-card {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 15px;
+  }
+  .step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    font-size: .95rem;
+  }
+  .step-content h4 {
+    font-size: .98rem;
+    margin-bottom: 6px;
+  }
+  .step-content p {
+    font-size: .9rem;
+  }
+  .math-scroll {
+    padding: 10px 8px;
+    margin: 10px 0;
+    border-radius: 10px;
+  }
+  .math-scroll mjx-container {
+    font-size: 86% !important;
+  }
+  .formula-card .math-display {
+    font-size: 1rem;
+  }
+  .diagram-box {
+    min-height: auto;
+    padding: 16px;
+    overflow: auto;
+    justify-content: flex-start;
+  }
+  .quadrant-wrap {
+    width: 230px;
+    height: 230px;
+    flex: 0 0 auto;
+    margin: 10px auto;
+  }
+  .quadrant-area {
+    font-size: .75rem;
+  }
+  .quadrant-label-pos {
+    font-size: .64rem;
+    padding: 3px 7px;
+  }
+  .flow-map {
+    padding-left: 17px;
+  }
+  .flow-item {
+    padding: 11px 0 11px 22px;
+    font-size: .92rem;
+  }
+  .flow-item::before {
+    left: -18px;
+  }
+  .rangkuman-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .rangkuman-item {
+    padding: 16px;
+    border-radius: 15px;
+  }
+  .study-step {
+    padding: 14px 14px 14px 52px;
+    border-radius: 14px;
+  }
+  .study-step::before {
+    left: 14px;
+    top: 14px;
+    width: 28px;
+    height: 28px;
+  }
+  .decision-card,
+  .lesson-flow .flow-card,
+  .mobile-tip {
+    padding: 15px;
+    border-radius: 15px;
+  }
+  #back-to-top {
+    width: 44px;
+    height: 44px;
+    right: 14px;
+    bottom: 14px;
+    border-radius: 14px;
+  }
+}
+@media (max-width: 390px) {
+  .section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .card {
+    padding: 15px;
+  }
+  .example-header {
+    margin: -15px -15px 14px -15px;
+    padding: 13px 15px;
+  }
+  .math-scroll mjx-container {
+    font-size: 80% !important;
+  }
+  .card-title {
+    font-size: .96rem;
+  }
+  .card-body {
+    font-size: .9rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -256,7 +675,7 @@ body.focus-mode .navbar { background: rgba(255,255,255,0.98); border-color: #f0f
 <!-- Navbar -->
 <nav class="navbar">
   <div class="navbar-container">
-    <a href="#" class="nav-logo"><i class="fas fa-shapes"></i> Modul Trigonometri</a>
+    <a href="#" class="nav-logo"><i class="fas fa-shapes"></i> Matematika Semester 2</a>
     <ul class="nav-links" id="nav-links">
       <li><a href="#pendahuluan">Pendahuluan</a></li>
       <li><a href="#bab1">Bab 1</a></li>
@@ -266,6 +685,7 @@ body.focus-mode .navbar { background: rgba(255,255,255,0.98); border-color: #f0f
       <li><a href="#bab5">Bab 5</a></li>
       <li><a href="#bab6">Bab 6</a></li>
       <li><a href="#bab7">Bab 7</a></li>
+      <li><a href="#cara-soal">Cara Soal</a></li>
       <li><a href="#rangkuman">Rangkuman</a></li>
     </ul>
     <div class="nav-actions">
@@ -286,9 +706,9 @@ body.focus-mode .navbar { background: rgba(255,255,255,0.98); border-color: #f0f
   <div class="hero-container">
     <div class="hero-text">
       <div class="hero-badge"><i class="fas fa-graduation-cap"></i> Modul Interaktif</div>
-      <h1>Modul Ringkasan <span>Matematika</span></h1>
-      <p class="hero-subtitle">Materi, Rumus, Contoh, dan Pembahasan</p>
-      <p class="hero-desc">Pelajari Trigonometri dari dasar hingga mahir. Segitiga siku-siku, sudut istimewa, aturan sinus cosinus, luas segitiga, dan konversi koordinat — semua dalam satu modul yang ringan dan responsif.</p>
+      <h1>Matematika <span>Semester 2</span></h1>
+      <p class="hero-subtitle">Trigonometri</p>
+      <p class="hero-desc">Pelajari Trigonometri dari dasar dengan penjelasan yang runtut, rumus penting, contoh soal, dan pembahasan yang jelas.</p>
       <a href="#pendahuluan" class="btn-primary"><i class="fas fa-book-open"></i> Mulai Belajar</a>
     </div>
     <div class="hero-visual decorative">
@@ -343,6 +763,64 @@ body.focus-mode .navbar { background: rgba(255,255,255,0.98); border-color: #f0f
     <div class="card-title"><i class="fas fa-heart card-icon" style="background: var(--primary); color: white;"></i> Saran untuk Pemula</div>
     <div class="card-body">
       <p><strong>Jangan terburu-buru.</strong> Matematika bukan tentang cepat, tapi tentang benar. Setiap rumus dalam modul ini dilengkapi dengan penjelasan arti simbolnya, sehingga kamu tidak perlu menghafal secara membabi buta. Fokus pada pemahaman, dan hafalan akan mengikuti dengan sendirinya.</p>
+    </div>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-title"><i class="fas fa-route card-icon"></i> Metode Belajar Bertahap</div>
+    <div class="card-body">
+      <p>Kalau matematika terasa sulit, jangan langsung menghafal semua rumus. Pakai alur ini dulu agar otak lebih mudah menangkap polanya.</p>
+      <div class="study-steps">
+        <div class="study-step">
+          <strong>Pahami gambar atau bentuk soalnya.</strong>
+          <p>Tentukan apakah soalnya tentang segitiga siku-siku, segitiga sembarang, luas segitiga, kuadran, atau koordinat.</p>
+        </div>
+        <div class="study-step">
+          <strong>Tulis diketahui dan ditanya.</strong>
+          <p>Jangan langsung hitung. Tulis dulu nilai sisi, sudut, dan apa yang dicari supaya tidak salah rumus.</p>
+        </div>
+        <div class="study-step">
+          <strong>Pilih rumus berdasarkan kondisi soal.</strong>
+          <p>Segitiga siku-siku pakai sin, cos, tan. Segitiga sembarang bisa pakai aturan sinus atau cosinus.</p>
+        </div>
+        <div class="study-step">
+          <strong>Substitusi pelan-pelan.</strong>
+          <p>Masukkan angka ke rumus satu per satu. Hindari melompat langkah karena biasanya kesalahan muncul di bagian ini.</p>
+        </div>
+        <div class="study-step">
+          <strong>Periksa apakah jawabannya masuk akal.</strong>
+          <p>Contohnya, sisi miring harus paling panjang, nilai sin/cos sudut lancip tidak boleh lebih dari 1, dan satuan harus sesuai.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-title"><i class="fas fa-map-signs card-icon"></i> Cara Memilih Rumus dengan Cepat</div>
+    <div class="card-body">
+      <p>Bagian ini penting karena banyak siswa sebenarnya bisa menghitung, tetapi bingung memilih rumus yang tepat.</p>
+      <div class="decision-grid">
+        <div class="decision-card">
+          <h4><i class="fas fa-right-angle"></i> Ada segitiga siku-siku?</h4>
+          <p>Gunakan perbandingan dasar trigonometri.</p>
+          <span class="rumus-pill">sin, cos, tan</span>
+        </div>
+        <div class="decision-card">
+          <h4><i class="fas fa-triangle-exclamation"></i> Segitiga sembarang + pasangan sisi-sudut?</h4>
+          <p>Jika ada sisi dan sudut yang saling berhadapan, biasanya paling mudah pakai aturan sinus.</p>
+          <span class="rumus-pill">Aturan Sinus</span>
+        </div>
+        <div class="decision-card">
+          <h4><i class="fas fa-draw-polygon"></i> Diketahui 2 sisi dan sudut apit?</h4>
+          <p>Kalau sudutnya berada di antara dua sisi yang diketahui, gunakan aturan cosinus.</p>
+          <span class="rumus-pill">Aturan Cosinus</span>
+        </div>
+        <div class="decision-card">
+          <h4><i class="fas fa-ruler-combined"></i> Ditanya luas segitiga?</h4>
+          <p>Jika diketahui dua sisi dan satu sudut apit, gunakan rumus luas trigonometri.</p>
+          <span class="rumus-pill">L = 1/2 ab sin C</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1549,6 +2027,89 @@ body.focus-mode .navbar { background: rgba(255,255,255,0.98); border-color: #f0f
   </div>
 </section>
 
+
+<!-- Cara Mengerjakan Soal -->
+<section id="cara-soal" class="section">
+  <div class="section-header reveal">
+    <span class="section-tag">Cara Soal</span>
+    <h2>Cara Mengerjakan Soal Trigonometri dari Nol</h2>
+    <p class="section-desc">Bagian ini dibuat agar kamu tidak hanya hafal rumus, tetapi juga tahu harus mulai dari mana saat ketemu soal.</p>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-title"><i class="fas fa-list-check card-icon"></i> Pola Umum Mengerjakan Soal</div>
+    <div class="card-body">
+      <div class="study-steps">
+        <div class="study-step">
+          <strong>Baca soal dan cari kata kunci.</strong>
+          <p>Kata seperti tinggi, jarak, sudut elevasi, segitiga siku-siku, kuadran, atau koordinat biasanya memberi petunjuk rumus.</p>
+        </div>
+        <div class="study-step">
+          <strong>Gambar sketsa sederhana.</strong>
+          <p>Tidak harus bagus. Yang penting posisi sisi, sudut, dan arah kuadran terlihat jelas.</p>
+        </div>
+        <div class="study-step">
+          <strong>Labeli sisi dan sudut.</strong>
+          <p>Tulis sisi depan, samping, miring, atau sisi a, b, c sesuai jenis soalnya.</p>
+        </div>
+        <div class="study-step">
+          <strong>Pilih rumus yang paling langsung.</strong>
+          <p>Jangan memakai rumus yang terlalu panjang jika ada cara lebih sederhana.</p>
+        </div>
+        <div class="study-step">
+          <strong>Hitung perlahan dan sederhanakan.</strong>
+          <p>Untuk bentuk akar, cek apakah perlu dirasionalkan. Untuk sudut istimewa, gunakan tabel 30°, 45°, 60°.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card reveal">
+      <div class="card-title"><i class="fas fa-compass card-icon"></i> Jika Soalnya Tentang Kuadran</div>
+      <div class="card-body">
+        <ul>
+          <li>Tentukan dulu sudutnya berada di kuadran berapa.</li>
+          <li>Cari sudut acuannya, misalnya 150° berarti acuannya 30°.</li>
+          <li>Tentukan tanda positif atau negatif dengan aturan ALL SIN TAN COS.</li>
+          <li>Masukkan nilai sudut istimewanya.</li>
+        </ul>
+        <div class="math-scroll">
+          \[ \sin 150^{\circ} = \sin(180^{\circ}-30^{\circ}) = \sin 30^{\circ} = \frac{1}{2} \]
+        </div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-title"><i class="fas fa-mountain card-icon"></i> Jika Soalnya Tentang Tinggi atau Jarak</div>
+      <div class="card-body">
+        <ul>
+          <li>Biasanya membentuk segitiga siku-siku.</li>
+          <li>Jarak mendatar biasanya sisi samping.</li>
+          <li>Tinggi yang dicari biasanya sisi depan.</li>
+          <li>Kalau depan dan samping terlibat, gunakan tangen.</li>
+        </ul>
+        <div class="math-scroll">
+          \[ \tan \alpha = \frac{\text{tinggi}}{\text{jarak}} \]
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-title"><i class="fas fa-brain card-icon"></i> Cara Mengecek Jawaban</div>
+    <div class="card-body">
+      <ul>
+        <li>Kalau segitiga siku-siku, sisi miring harus paling panjang.</li>
+        <li>Nilai \( \sin \) dan \( \cos \) untuk sudut lancip harus berada antara 0 dan 1.</li>
+        <li>Kalau di Kuadran II, cos dan tan harus negatif.</li>
+        <li>Kalau di Kuadran III, sin dan cos negatif, tetapi tan positif.</li>
+        <li>Kalau luas segitiga negatif, berarti ada kesalahan karena luas harus positif.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- Rangkuman -->
 <section id="rangkuman" class="section">
   <div class="section-header reveal">
@@ -1712,6 +2273,30 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.reveal').forEach(function(el) {
     revealObserver.observe(el);
   });
+
+
+  // Mobile safety: reveal fallback supaya elemen tidak "hilang" saat observer gagal
+  function revealVisibleNow() {
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight + 160 && r.bottom > -160) {
+        el.classList.add('active');
+      }
+    });
+  }
+  window.addEventListener('load', revealVisibleNow);
+  window.addEventListener('scroll', revealVisibleNow, { passive: true });
+  setTimeout(revealVisibleNow, 350);
+
+  // Pastikan rumus MathJax tidak memaksa body melebar
+  function fixMathOverflow() {
+    document.querySelectorAll('.math-scroll').forEach(function(box) {
+      box.style.maxWidth = '100%';
+      box.style.overflowX = 'auto';
+    });
+  }
+  window.addEventListener('load', fixMathOverflow);
+  setTimeout(fixMathOverflow, 1200);
 
   // Focus mode
   var focusBtn = document.getElementById('focus-btn');
