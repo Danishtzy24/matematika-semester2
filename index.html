@@ -2,11 +2,11 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Matematika Semester 2 — Trigonometri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script>
 window.MathJax = {
@@ -23,2197 +23,1147 @@ window.MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 :root {
-  --bg: #fff7f7; --surface: #ffffff; --primary: #dc2626; --primary-dark: #991b1b;
-  --primary-soft: #fee2e2; --text: #1f2937; --muted: #6b7280; --border: #fecaca;
-  --shadow: rgba(153, 27, 27, 0.12); --radius: 24px; --radius-sm: 18px;
-  --max-width: 1120px; --nav-height: 72px;
+  --bg: #fff7f7;
+  --surface: #ffffff;
+  --surface-2: #fffafa;
+  --primary: #dc2626;
+  --primary-dark: #991b1b;
+  --primary-soft: #fee2e2;
+  --primary-soft-2: #fff1f1;
+  --text: #1f2937;
+  --muted: #667085;
+  --border: #fecaca;
+  --border-2: rgba(220, 38, 38, .18);
+  --shadow: rgba(153, 27, 27, 0.12);
+  --shadow-soft: rgba(153, 27, 27, 0.075);
+  --radius: 24px;
+  --radius-sm: 18px;
+  --max-width: 1120px;
+  --nav-height: 72px;
 }
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 20px); }
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text);
-  line-height: 1.7; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-  user-select: none; -webkit-user-select: none; -ms-user-select: none;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(220,38,38,.08), transparent 28rem),
+    radial-gradient(circle at 90% 10%, rgba(153,27,27,.07), transparent 24rem),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
-#progress-bar { position: fixed; top: 0; left: 0; height: 4px;
+a { color: inherit; }
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
   background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-  z-index: 10001; width: 0%; transition: width 0.15s linear;
+  z-index: 99999;
+  transition: width .12s linear;
 }
-.navbar { position: sticky; top: 0; background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border); z-index: 10000; height: var(--nav-height);
+.navbar {
+  position: sticky;
+  top: 0;
+  height: var(--nav-height);
+  background: rgba(255,255,255,.92);
+  border-bottom: 1px solid rgba(254,202,202,.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 10000;
 }
-.navbar-container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
-  display: flex; align-items: center; justify-content: space-between; height: 100%;
+.navbar-container {
+  height: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
-.nav-logo { font-weight: 800; color: var(--primary); font-size: 1.25rem;
-  display: flex; align-items: center; gap: 10px; text-decoration: none;
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: -.02em;
+  font-size: 1.08rem;
+  white-space: nowrap;
 }
-.nav-logo i { font-size: 1.4rem; }
-.nav-links { display: flex; gap: 6px; list-style: none; align-items: center; }
-.nav-links a { text-decoration: none; color: var(--muted); font-weight: 600;
-  font-size: 0.8rem; padding: 8px 12px; border-radius: 12px; transition: all 0.2s ease; white-space: nowrap;
+.nav-logo i { font-size: 1.3rem; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
 }
-.nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-soft); }
-.nav-actions { display: flex; gap: 10px; align-items: center; }
-.btn-icon { width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--border);
-  background: var(--surface); color: var(--text); cursor: pointer;
-  display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; transition: all 0.2s ease;
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 800;
+  font-size: .78rem;
+  padding: 8px 11px;
+  border-radius: 999px;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+  white-space: nowrap;
 }
-.btn-icon:hover { background: var(--primary-soft); color: var(--primary); border-color: var(--primary); }
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+}
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.btn-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 14px var(--shadow-soft);
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.btn-icon:hover { transform: translateY(-2px); background: var(--primary-soft); color: var(--primary-dark); }
 .hamburger { display: none; }
-.hero { position: relative; padding: 100px 24px 80px; overflow: hidden;
-  background: linear-gradient(135deg, var(--bg) 0%, #fff0f0 100%);
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 92px 24px 72px;
 }
-.hero-bg-decor { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-.hero-bg-decor .shape { position: absolute; opacity: 0.08; background: var(--primary); }
-.shape-1 { width: 300px; height: 300px; border-radius: 50%; top: -100px; right: -60px; animation: float 8s ease-in-out infinite; }
-.shape-2 { width: 120px; height: 120px; border-radius: 24px; bottom: 40px; left: 10%; transform: rotate(15deg); animation: float 6s ease-in-out infinite reverse; }
-.shape-3 { width: 80px; height: 80px; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); top: 20%; left: 5%; animation: float 10s ease-in-out infinite 1s; }
-.shape-4 { width: 60px; height: 60px; border-radius: 50%; border: 4px solid var(--primary); bottom: 20%; right: 15%; animation: float 7s ease-in-out infinite 0.5s; }
-@keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
-.hero-container { max-width: var(--max-width); margin: 0 auto; display: grid;
-  grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 2;
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 999px;
+  background: var(--primary);
+  opacity: .07;
+  pointer-events: none;
 }
-.hero-badge { display: inline-flex; align-items: center; gap: 8px;
-  background: var(--primary-soft); color: var(--primary-dark);
-  padding: 8px 16px; border-radius: 100px; font-weight: 700; font-size: 0.875rem; margin-bottom: 24px;
+.hero::before { width: 330px; height: 330px; top: -120px; right: -80px; }
+.hero::after { width: 180px; height: 180px; bottom: 20px; left: 6%; }
+.hero-container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+  align-items: center;
+  gap: 54px;
 }
-.hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; color: var(--text); margin-bottom: 16px; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: .82rem;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-size: clamp(2.15rem, 5vw, 3.65rem);
+  line-height: 1.08;
+  letter-spacing: -.055em;
+  font-weight: 900;
+  margin-bottom: 14px;
+}
 .hero h1 span { color: var(--primary); }
-.hero-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--muted); font-weight: 500; margin-bottom: 20px; }
-.hero-desc { color: var(--muted); max-width: 480px; margin-bottom: 32px; font-size: 1.05rem; }
-.btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: white;
-  padding: 14px 28px; border-radius: 16px; text-decoration: none; font-weight: 700; font-size: 1rem;
-  border: none; cursor: pointer; box-shadow: 0 10px 30px var(--shadow); transition: transform 0.2s, box-shadow 0.2s;
+.hero-subtitle {
+  color: var(--text);
+  font-weight: 800;
+  font-size: clamp(1rem, 2vw, 1.28rem);
+  margin-bottom: 14px;
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(153,27,27,0.2); }
-.hero-visual { position: relative; width: 100%; height: 380px; display: flex; align-items: center; justify-content: center; }
-.triangle-scene { position: relative; width: 260px; height: 260px; }
-.triangle-main { width: 0; height: 0; border-left: 100px solid transparent; border-right: 100px solid transparent;
-  border-bottom: 170px solid var(--primary-soft); position: absolute; left: 30px; top: 40px;
-  filter: drop-shadow(0 10px 20px var(--shadow)); animation: tri-pulse 5s ease-in-out infinite;
+.hero-desc {
+  color: var(--muted);
+  max-width: 620px;
+  font-size: clamp(.98rem, 2vw, 1.06rem);
+  margin-bottom: 28px;
 }
-.triangle-main::after { content: ''; position: absolute; left: -100px; top: 0; width: 0; height: 0;
-  border-left: 100px solid transparent; border-right: 100px solid transparent;
-  border-bottom: 170px solid rgba(220,38,38,0.15); transform: translate(8px, 8px); z-index: -1;
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border-radius: 16px;
+  border: 0;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 14px 34px rgba(153,27,27,.22);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-@keyframes tri-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-.triangle-label { position: absolute; font-size: 0.8rem; font-weight: 700; color: var(--primary-dark);
-  background: white; padding: 4px 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 44px rgba(153,27,27,.26); }
+.hero-visual {
+  background: rgba(255,255,255,.82);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  box-shadow: 0 24px 70px rgba(153,27,27,.12);
+  padding: 28px;
+  min-height: 352px;
+  display: grid;
+  place-items: center;
 }
-.label-depan { left: 110px; top: 120px; }
-.label-miring { left: 140px; top: 60px; transform: rotate(30deg); }
-.label-samping { left: 10px; top: 180px; }
-.label-sudut { left: 40px; top: 195px; background: var(--primary); color: white; border-radius: 50%;
-  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; padding: 0;
+.svg-card {
+  width: min(100%, 390px);
+  display: block;
 }
-.section { padding: 80px 24px; max-width: var(--max-width); margin: 0 auto; }
-.section-header { margin-bottom: 48px; }
-.section-tag { display: inline-block; background: var(--primary-soft); color: var(--primary);
-  padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 76px 24px;
 }
-.section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 12px; line-height: 1.3; }
-.section-desc { color: var(--muted); max-width: 640px; font-size: 1.05rem; }
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 32px; margin-bottom: 24px; box-shadow: 0 4px 24px var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.section-header { margin-bottom: 34px; }
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
-.card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(153,27,27,0.15); }
-.card-title { display: flex; align-items: center; gap: 12px; font-size: 1.15rem;
-  font-weight: 700; margin-bottom: 16px; color: var(--text);
+.section h2 {
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  line-height: 1.18;
+  letter-spacing: -.035em;
+  font-weight: 900;
+  margin-bottom: 10px;
 }
-.card-icon { width: 44px; height: 44px; background: var(--primary-soft); color: var(--primary);
-  border-radius: 14px; display: inline-flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; flex-shrink: 0;
+.section-desc {
+  color: var(--muted);
+  max-width: 760px;
+  font-size: 1.02rem;
+}
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.card {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 34px var(--shadow-soft);
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(153,27,27,.13); }
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  font-weight: 900;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 15px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
 }
 .card-body { color: var(--muted); }
 .card-body p { margin-bottom: 12px; }
-.card-body ul { margin-left: 20px; color: var(--muted); }
+.card-body ul, .card-body ol { margin-left: 20px; }
 .card-body li { margin-bottom: 8px; }
-.formula-card { border-left: 5px solid var(--primary); background: linear-gradient(to right, #fffafa, var(--surface)); }
-.formula-card .math-display { font-size: 1.25rem; }
-.example-card { background: linear-gradient(135deg, #ffffff, #fff7f7); border: 1px solid var(--border); overflow: hidden; }
-.example-header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white;
-  margin: -32px -32px 24px -32px; padding: 20px 32px; border-radius: var(--radius) var(--radius) 0 0;
-  font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;
+.card-body strong { color: var(--text); }
+.soft-card {
+  background: linear-gradient(135deg, #ffffff, var(--primary-soft-2));
+  border-color: rgba(220, 38, 38, .26);
 }
-.example-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px; }
-.meta-box { background: #fffafa; border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; }
-.meta-box strong { display: block; color: var(--primary-dark); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 4px; }
-.meta-box span { color: var(--text); font-weight: 600; }
-.steps { display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
-.step-card { display: flex; gap: 20px; background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius-sm); padding: 24px; position: relative; transition: transform 0.2s;
+.formula-card {
+  background: linear-gradient(135deg, #fffafa, #ffffff);
+  border-left: 6px solid var(--primary);
 }
-.step-card:hover { transform: translateX(4px); }
-.step-number { flex-shrink: 0; width: 48px; height: 48px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white;
-  border-radius: 14px; display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 1.1rem;
-}
-.step-content h4 { font-weight: 700; margin-bottom: 8px; color: var(--text); font-size: 1.05rem; }
-.step-content p, .step-content .math-display { color: var(--muted); }
-.math-scroll { overflow-x: auto; padding: 16px; background: #fffafa; border-radius: 12px;
-  border: 1px solid var(--border); margin: 12px 0;
-}
-.math-scroll::-webkit-scrollbar { height: 6px; }
-.math-scroll::-webkit-scrollbar-track { background: transparent; }
-.math-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-.diagram-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 40px; display: flex; align-items: center; justify-content: center; margin: 24px 0;
-  position: relative; overflow: hidden; min-height: 200px;
-}
-.quadrant-wrap { width: 280px; height: 280px; position: relative; }
-.quadrant-axis-x, .quadrant-axis-y { position: absolute; background: var(--text); }
-.quadrant-axis-x { width: 100%; height: 2px; top: 50%; left: 0; }
-.quadrant-axis-y { width: 2px; height: 100%; left: 50%; top: 0; }
-.quadrant-area { position: absolute; width: 50%; height: 50%; display: flex;
-  align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; color: var(--text);
-}
-.q1 { top: 0; right: 0; background: rgba(220,38,38,0.06); border-radius: 0 var(--radius-sm) 0 0; }
-.q2 { top: 0; left: 0; background: rgba(220,38,38,0.04); border-radius: var(--radius-sm) 0 0 0; }
-.q3 { bottom: 0; left: 0; background: rgba(220,38,38,0.04); border-radius: 0 0 0 var(--radius-sm); }
-.q4 { bottom: 0; right: 0; background: rgba(220,38,38,0.06); border-radius: 0 0 var(--radius-sm) 0; }
-.quadrant-label-pos { position: absolute; font-size: 0.75rem; font-weight: 700;
-  padding: 4px 10px; border-radius: 8px; background: var(--primary-soft); color: var(--primary-dark);
-}
-.rangkuman-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.rangkuman-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
-  padding: 24px; box-shadow: 0 2px 12px var(--shadow);
-}
-.rangkuman-item h4 { display: flex; align-items: center; gap: 10px; font-size: 1rem;
-  font-weight: 700; margin-bottom: 12px; color: var(--primary-dark);
-}
-.rangkuman-item .math-display { font-size: 1rem; }
-.flow-map { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 24px; }
-.flow-map::before { content: ''; position: absolute; left: 7px; top: 12px; bottom: 12px;
-  width: 3px; background: linear-gradient(to bottom, var(--primary), var(--primary-soft)); border-radius: 3px;
-}
-.flow-item { position: relative; padding: 14px 0 14px 28px; font-weight: 600; color: var(--text); }
-.flow-item::before { content: ''; position: absolute; left: -24px; top: 20px;
-  width: 14px; height: 14px; background: var(--surface); border: 3px solid var(--primary); border-radius: 50%;
-}
-body.focus-mode { --bg: #ffffff; --surface: #ffffff; }
-body.focus-mode .hero-bg-decor, body.focus-mode .decorative, body.focus-mode .section-tag, body.focus-mode .hero-visual {
-  opacity: 0.25; filter: grayscale(0.4);
-}
-body.focus-mode .card { box-shadow: 0 2px 12px rgba(0,0,0,0.05); border-color: #f5f5f5; }
-body.focus-mode .navbar { background: rgba(255,255,255,0.98); border-color: #f0f0f0; }
-#back-to-top { position: fixed; bottom: 32px; right: 32px; width: 52px; height: 52px;
-  border-radius: 16px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; box-shadow: 0 8px 24px var(--shadow); opacity: 0; pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease; z-index: 9999;
-}
-#back-to-top.visible { opacity: 1; pointer-events: all; }
-#back-to-top:hover { transform: translateY(-4px); }
-.reveal { opacity: 0; transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.active { opacity: 1; transform: translateY(0); }
-.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-.text-primary { color: var(--primary); }
-.bg-soft { background: var(--primary-soft); }
-.mt-2 { margin-top: 8px; }
-.mt-4 { margin-top: 16px; }
-.mb-4 { margin-bottom: 16px; }
-.text-center { text-align: center; }
-@media (max-width: 960px) {
-  .hero-container { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-  .hero-visual { height: 300px; order: -1; }
-  .hero-desc { margin-left: auto; margin-right: auto; }
-  .nav-links { display: none; position: absolute; top: var(--nav-height); left: 0; right: 0;
-    background: white; flex-direction: column; padding: 16px 24px 24px;
-    border-bottom: 1px solid var(--border); box-shadow: 0 20px 40px var(--shadow);
-    gap: 4px; max-height: 70vh; overflow-y: auto;
-  }
-  .nav-links.open { display: flex; }
-  .nav-links a { width: 100%; padding: 12px; font-size: 0.9rem; }
-  .hamburger { display: inline-flex; }
-  .section { padding: 60px 20px; }
-  .card { padding: 24px; }
-  .example-header { margin: -24px -24px 20px -24px; padding: 16px 24px; }
-  .step-card { flex-direction: column; gap: 14px; }
-  .rangkuman-list { grid-template-columns: 1fr; }
-}
-@media (max-width: 600px) {
-  :root { --radius: 20px; --radius-sm: 16px; }
-  .hero { padding: 60px 20px 40px; }
-  .triangle-scene { transform: scale(0.85); }
-  .diagram-box { padding: 24px; }
-  .data-table { font-size: 0.85rem; }
-  .data-table th, .data-table td { padding: 10px 8px; }
-}
-
-/* ================================
-   Mobile Perfect Patch + Learning UI
-   Ditambahkan agar halaman pas di HP, ringan, dan tidak kepotong.
-================================ */
-html, body {
+.math-scroll,
+.table-wrap {
   width: 100%;
-  max-width: 100%;
-  overflow-x: clip;
-}
-main, section, .section, .hero, .hero-container, .card, .card-body,
-.grid-2, .grid-3, .example-card, .steps, .step-card, .rangkuman-list,
-.rangkuman-item, .diagram-box, .math-scroll {
-  min-width: 0;
-  max-width: 100%;
-}
-p, li, span, strong, .card-body, .step-content, .meta-box span {
-  overflow-wrap: break-word;
-  word-break: normal;
-}
-.math-scroll {
-  width: 100%;
-  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-inline: contain;
-}
-.math-scroll mjx-container {
-  max-width: none !important;
-}
-.math-scroll svg {
-  max-width: none !important;
-}
-.card,
-.step-card,
-.meta-box,
-.rangkuman-item {
-  overflow: hidden;
-}
-.step-content {
-  min-width: 0;
-  width: 100%;
-}
-.lesson-flow {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 18px;
-}
-.lesson-flow .flow-card {
   background: #fffafa;
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 18px;
+  border-radius: 16px;
+  padding: 14px;
+  margin: 12px 0;
 }
-.lesson-flow .flow-card strong {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.math-scroll mjx-container { max-width: none !important; }
+.math-scroll svg { max-width: none !important; }
+.table-wrap { padding: 0; }
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 680px;
+  color: var(--text);
+  background: white;
+}
+.data-table th,
+.data-table td {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 16px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 750;
+}
+.data-table th {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-weight: 900;
+}
+.data-table tr:last-child td { border-bottom: 0; }
+.data-table th:last-child,
+.data-table td:last-child { border-right: 0; }
+.data-table .row-head {
+  background: var(--primary-soft);
   color: var(--primary-dark);
-  margin-bottom: 8px;
+  font-weight: 900;
+  position: sticky;
+  left: 0;
+  z-index: 2;
 }
+.table-note { color: var(--muted); font-size: .9rem; margin-top: 8px; }
+.lesson-flow,
 .decision-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
-  margin-top: 20px;
+  gap: 16px;
+  margin-top: 16px;
 }
-.decision-card {
-  background: var(--surface);
+.flow-card,
+.decision-card,
+.rangkuman-item,
+.mini-card {
+  background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: 20px;
-  box-shadow: 0 2px 12px var(--shadow);
+  padding: 18px;
+  min-width: 0;
 }
-.decision-card h4 {
-  color: var(--primary-dark);
-  margin-bottom: 10px;
+.flow-card strong,
+.decision-card h4,
+.rangkuman-item h4,
+.mini-card h4 {
   display: flex;
   align-items: center;
   gap: 8px;
+  color: var(--primary-dark);
+  font-size: .98rem;
+  margin-bottom: 8px;
+  font-weight: 900;
 }
-.decision-card p {
-  color: var(--muted);
-  margin-bottom: 10px;
-}
-.decision-card .rumus-pill {
-  display: inline-block;
+.flow-card p,
+.decision-card p,
+.rangkuman-item p,
+.mini-card p { color: var(--muted); margin: 0; }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: var(--primary-soft);
   color: var(--primary-dark);
-  padding: 6px 10px;
+  border: 1px solid var(--border);
   border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 900;
   font-size: .82rem;
-  font-weight: 800;
+  margin: 4px 6px 4px 0;
+  white-space: nowrap;
 }
-.study-steps {
-  counter-reset: study;
+.study-steps,
+.steps { display: grid; gap: 14px; margin-top: 16px; }
+.step-card {
   display: grid;
-  gap: 12px;
-  margin-top: 18px;
-}
-.study-step {
-  counter-increment: study;
-  background: var(--surface);
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  background: white;
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 16px 16px 16px 58px;
-  position: relative;
-}
-.study-step::before {
-  content: counter(study);
-  position: absolute;
-  left: 16px;
-  top: 16px;
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  color: #fff;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-}
-.study-step strong {
-  color: var(--text);
-}
-.study-step p {
-  margin: 5px 0 0;
-  color: var(--muted);
-  font-size: .95rem;
-}
-.mobile-tip {
-  background: linear-gradient(135deg, var(--primary-soft), #ffffff);
-  border: 1px solid var(--border);
-  border-left: 5px solid var(--primary);
   border-radius: 18px;
   padding: 18px;
+  min-width: 0;
+}
+.step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  box-shadow: 0 8px 20px rgba(153,27,27,.16);
+}
+.step-content { min-width: 0; }
+.step-content h4 { font-size: 1rem; font-weight: 900; color: var(--text); margin-bottom: 6px; }
+.step-content p { color: var(--muted); margin-bottom: 8px; }
+.example-card {
+  background: linear-gradient(135deg, #ffffff, #fff8f8);
+  border: 1px solid rgba(220, 38, 38, .22);
+}
+.example-header {
+  margin: -28px -28px 22px;
+  padding: 18px 28px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.answer-box {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--primary-soft), #ffffff);
+  color: var(--primary-dark);
+  font-weight: 900;
+}
+.notice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 16px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--primary-soft), #ffffff);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--primary);
   color: var(--muted);
 }
-.mobile-tip strong {
-  color: var(--primary-dark);
+.notice i { color: var(--primary-dark); margin-top: 4px; }
+.notice strong { color: var(--primary-dark); }
+.diagram-box {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 20px;
+  margin: 16px 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
-@media (hover: none) and (pointer: coarse) {
-  .card:hover,
-  .step-card:hover,
-  .btn-primary:hover,
-  #back-to-top:hover {
-    transform: none !important;
-    box-shadow: 0 4px 24px var(--shadow);
-  }
+.diagram-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, .95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 22px;
 }
-@media (prefers-reduced-motion: reduce), (max-width: 760px) {
-  *, *::before, *::after {
-    animation-duration: .001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .001ms !important;
-    scroll-behavior: auto !important;
-  }
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
+.rangkuman-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.checklist li::marker { color: var(--primary); }
+.footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 24px 70px;
+  color: var(--muted);
+  text-align: center;
+  font-weight: 700;
 }
-@media (max-width: 720px) {
-  :root {
-    --nav-height: 64px;
-    --radius: 18px;
-    --radius-sm: 14px;
-  }
-  body {
-    line-height: 1.62;
-    overflow-x: hidden;
-  }
-  .navbar-container {
-    padding: 0 12px;
-  }
-  .nav-logo {
-    font-size: .95rem;
-    gap: 7px;
-    max-width: calc(100vw - 118px);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .nav-logo i {
-    font-size: 1.08rem;
-  }
-  .btn-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 11px;
-  }
+#back-to-top {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 12px 28px rgba(153,27,27,.24);
+  transition: opacity .25s ease, transform .25s ease;
+  z-index: 1000;
+}
+#back-to-top.visible { opacity: 1; pointer-events: all; }
+#back-to-top:hover { transform: translateY(-3px); }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .55s ease, transform .55s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+body.focus-mode {
+  background: #fff;
+  --shadow-soft: rgba(0,0,0,.045);
+  --border-2: rgba(0,0,0,.08);
+}
+body.focus-mode .hero::before,
+body.focus-mode .hero::after,
+body.focus-mode .hero-visual { opacity: .35; }
+@media (max-width: 1020px) {
   .nav-links {
-    left: 10px;
-    right: 10px;
-    top: calc(var(--nav-height) + 6px);
+    display: none;
+    position: absolute;
+    top: calc(var(--nav-height) + 10px);
+    left: 16px;
+    right: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    background: rgba(255,255,255,.98);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 10px;
-    max-height: min(68vh, 520px);
+    box-shadow: 0 24px 60px rgba(153,27,27,.16);
+    max-height: min(72vh, 540px);
     overflow-y: auto;
   }
-  .hero {
-    padding: 42px 14px 34px;
-  }
-  .hero-container {
-    gap: 18px;
-    text-align: left;
-  }
-  .hero-badge {
-    font-size: .74rem;
-    padding: 6px 11px;
-    margin-bottom: 14px;
-  }
-  .hero h1 {
-    font-size: clamp(1.65rem, 9vw, 2.3rem);
-    line-height: 1.12;
-  }
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-  .hero-desc {
+  .nav-links.open { display: flex; }
+  .nav-links a { width: 100%; padding: 12px 14px; border-radius: 14px; }
+  .hamburger { display: inline-flex; }
+  .hero-container { grid-template-columns: 1fr; gap: 28px; }
+  .hero-visual { order: -1; min-height: auto; padding: 22px; }
+  .svg-card { max-width: 340px; }
+  .grid-2, .grid-3, .diagram-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  :root { --nav-height: 64px; --radius: 18px; --radius-sm: 14px; }
+  body { line-height: 1.62; }
+  .navbar-container { padding: 0 12px; }
+  .nav-logo {
     font-size: .92rem;
-    max-width: 100%;
-    margin-bottom: 20px;
+    max-width: calc(100vw - 116px);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .btn-primary {
-    width: 100%;
-    justify-content: center;
-    padding: 13px 16px;
-    border-radius: 14px;
-  }
-  .hero-visual {
-    display: none;
-  }
-  .hero-bg-decor {
-    display: none;
-  }
-  .section {
-    padding: 44px 13px;
-  }
-  .section-header {
-    margin-bottom: 24px;
-  }
-  .section-tag {
-    font-size: .68rem;
-    padding: 5px 10px;
-  }
-  .section h2 {
-    font-size: clamp(1.32rem, 6vw, 1.75rem);
-    line-height: 1.22;
-  }
-  .section-desc {
-    font-size: .92rem;
-  }
-  .grid-2,
-  .grid-3,
-  .example-meta,
-  .lesson-flow,
-  .decision-grid {
-    grid-template-columns: 1fr !important;
-    gap: 14px;
-  }
-  .card {
-    padding: 18px;
-    margin-bottom: 16px;
-    border-radius: 18px;
-    box-shadow: 0 2px 14px rgba(153, 27, 27, 0.08);
-  }
-  .card-title {
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 1rem;
-    margin-bottom: 12px;
-  }
-  .card-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 12px;
-    font-size: .95rem;
-  }
-  .card-body {
-    font-size: .93rem;
-  }
-  .card-body ul {
-    margin-left: 16px;
-  }
-  .card-body li {
-    margin-bottom: 7px;
-  }
-  .example-header {
-    margin: -18px -18px 16px -18px;
-    padding: 14px 18px;
-    border-radius: 18px 18px 0 0;
-    font-size: .98rem;
-  }
-  .meta-box {
-    padding: 12px 13px;
-    border-radius: 13px;
-  }
-  .steps {
-    gap: 12px;
-    margin-top: 16px;
-  }
-  .step-card {
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px;
-    border-radius: 15px;
-  }
-  .step-number {
-    width: 36px;
-    height: 36px;
-    border-radius: 11px;
-    font-size: .95rem;
-  }
-  .step-content h4 {
-    font-size: .98rem;
-    margin-bottom: 6px;
-  }
-  .step-content p {
-    font-size: .9rem;
-  }
-  .math-scroll {
-    padding: 10px 8px;
-    margin: 10px 0;
-    border-radius: 10px;
-  }
-  .math-scroll mjx-container {
-    font-size: 86% !important;
-  }
-  .formula-card .math-display {
-    font-size: 1rem;
-  }
-  .diagram-box {
-    min-height: auto;
-    padding: 16px;
-    overflow: auto;
-    justify-content: flex-start;
-  }
-  .quadrant-wrap {
-    width: 230px;
-    height: 230px;
-    flex: 0 0 auto;
-    margin: 10px auto;
-  }
-  .quadrant-area {
-    font-size: .75rem;
-  }
-  .quadrant-label-pos {
-    font-size: .64rem;
-    padding: 3px 7px;
-  }
-  .flow-map {
-    padding-left: 17px;
-  }
-  .flow-item {
-    padding: 11px 0 11px 22px;
-    font-size: .92rem;
-  }
-  .flow-item::before {
-    left: -18px;
-  }
-  .rangkuman-list {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .rangkuman-item {
-    padding: 16px;
-    border-radius: 15px;
-  }
-  .study-step {
-    padding: 14px 14px 14px 52px;
-    border-radius: 14px;
-  }
-  .study-step::before {
-    left: 14px;
-    top: 14px;
-    width: 28px;
-    height: 28px;
-  }
-  .decision-card,
-  .lesson-flow .flow-card,
-  .mobile-tip {
-    padding: 15px;
-    border-radius: 15px;
-  }
-  #back-to-top {
-    width: 44px;
-    height: 44px;
-    right: 14px;
-    bottom: 14px;
-    border-radius: 14px;
-  }
+  .btn-icon { width: 38px; height: 38px; border-radius: 12px; }
+  .hero { padding: 38px 14px 34px; }
+  .hero-visual { display: none; }
+  .hero-badge { font-size: .72rem; padding: 6px 10px; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(1.7rem, 9vw, 2.25rem); }
+  .hero-desc { font-size: .92rem; margin-bottom: 20px; }
+  .btn-primary { width: 100%; padding: 13px 16px; }
+  .section { padding: 44px 13px; }
+  .section-header { margin-bottom: 22px; }
+  .section-tag { font-size: .66rem; }
+  .section h2 { font-size: clamp(1.34rem, 6vw, 1.72rem); }
+  .section-desc { font-size: .92rem; }
+  .card { padding: 18px; margin-bottom: 16px; border-radius: 18px; box-shadow: 0 3px 18px rgba(153,27,27,.08); }
+  .card:hover, .btn-icon:hover, .btn-primary:hover, #back-to-top:hover { transform: none; }
+  .card-title { align-items: flex-start; font-size: 1rem; gap: 10px; }
+  .card-icon { width: 36px; height: 36px; border-radius: 12px; }
+  .card-body { font-size: .92rem; }
+  .card-body ul, .card-body ol { margin-left: 16px; }
+  .example-header { margin: -18px -18px 16px; padding: 14px 18px; }
+  .step-card { grid-template-columns: 1fr; gap: 10px; padding: 15px; border-radius: 16px; }
+  .step-number { width: 36px; height: 36px; border-radius: 12px; }
+  .math-scroll { padding: 10px 8px; border-radius: 12px; }
+  .math-scroll mjx-container { font-size: 84% !important; }
+  .table-wrap { border-radius: 13px; }
+  .data-table { min-width: 610px; font-size: .84rem; }
+  .data-table th, .data-table td { padding: 11px 10px; }
+  .flow-card, .decision-card, .rangkuman-item, .mini-card, .notice { border-radius: 15px; padding: 14px; }
+  .lesson-flow, .decision-grid, .rangkuman-list { grid-template-columns: 1fr; gap: 12px; }
+  .diagram-box { padding: 12px; border-radius: 16px; }
+  .diagram-box svg { min-width: 290px; }
+  #back-to-top { width: 44px; height: 44px; right: 14px; bottom: 14px; border-radius: 14px; }
+  .footer { padding: 22px 14px 60px; font-size: .86rem; }
 }
 @media (max-width: 390px) {
-  .section {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .card {
-    padding: 15px;
-  }
-  .example-header {
-    margin: -15px -15px 14px -15px;
-    padding: 13px 15px;
-  }
-  .math-scroll mjx-container {
-    font-size: 80% !important;
-  }
-  .card-title {
-    font-size: .96rem;
-  }
-  .card-body {
-    font-size: .9rem;
-  }
+  .section { padding-left: 10px; padding-right: 10px; }
+  .card { padding: 15px; }
+  .example-header { margin: -15px -15px 14px; padding: 13px 15px; }
+  .math-scroll mjx-container { font-size: 78% !important; }
+  .data-table { min-width: 570px; font-size: .8rem; }
 }
-
+@media (hover: none) and (pointer: coarse) {
+  .card:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce), (max-width: 760px) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
 </style>
 </head>
 <body>
-
 <div id="progress-bar"></div>
 
-<!-- Navbar -->
 <nav class="navbar">
   <div class="navbar-container">
     <a href="#" class="nav-logo"><i class="fas fa-shapes"></i> Matematika Semester 2</a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#pendahuluan">Pendahuluan</a></li>
-      <li><a href="#bab1">Bab 1</a></li>
-      <li><a href="#bab2">Bab 2</a></li>
-      <li><a href="#bab3">Bab 3</a></li>
-      <li><a href="#bab4">Bab 4</a></li>
-      <li><a href="#bab5">Bab 5</a></li>
-      <li><a href="#bab6">Bab 6</a></li>
-      <li><a href="#bab7">Bab 7</a></li>
-      <li><a href="#cara-soal">Cara Soal</a></li>
+      <li><a href="#dasar">Dasar</a></li>
+      <li><a href="#acuan">Titik Acuan</a></li>
+      <li><a href="#perbandingan">Perbandingan</a></li>
+      <li><a href="#istimewa">Sudut Istimewa</a></li>
+      <li><a href="#kuadran">Kuadran</a></li>
+      <li><a href="#aturan-sinus">Aturan Sinus</a></li>
+      <li><a href="#aturan-cosinus">Aturan Cosinus</a></li>
+      <li><a href="#luas">Luas</a></li>
+      <li><a href="#koordinat">Koordinat</a></li>
+      <li><a href="#soal-cerita">Soal Cerita</a></li>
       <li><a href="#rangkuman">Rangkuman</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="btn-icon" id="focus-btn" title="Mode Fokus"><i class="fas fa-eye"></i></button>
-      <button class="btn-icon hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+      <button class="btn-icon" id="focus-btn" title="Mode Fokus" aria-label="Mode Fokus"><i class="fas fa-eye"></i></button>
+      <button class="btn-icon hamburger" id="hamburger" title="Menu" aria-label="Menu"><i class="fas fa-bars"></i></button>
     </div>
   </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-bg-decor decorative">
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="shape shape-3"></div>
-    <div class="shape shape-4"></div>
-  </div>
+<header class="hero">
   <div class="hero-container">
     <div class="hero-text">
-      <div class="hero-badge"><i class="fas fa-graduation-cap"></i> Modul Interaktif</div>
+      <div class="hero-badge"><i class="fas fa-compass-drafting"></i> Trigonometri Kelas X</div>
       <h1>Matematika <span>Semester 2</span></h1>
-      <p class="hero-subtitle">Trigonometri</p>
-      <p class="hero-desc">Pelajari Trigonometri dari dasar dengan penjelasan yang runtut, rumus penting, contoh soal, dan pembahasan yang jelas.</p>
-      <a href="#pendahuluan" class="btn-primary"><i class="fas fa-book-open"></i> Mulai Belajar</a>
+      <p class="hero-subtitle">Perbandingan, sudut istimewa, kuadran, aturan sinus-cosinus, luas segitiga, dan koordinat.</p>
+      <p class="hero-desc">Materi disusun dari dasar supaya mudah dibaca: mulai dari menentukan sisi depan-samping-miring, membaca tabel sin-cos, memilih rumus, sampai menyelesaikan soal cerita seperti perahu dan menghitung sudut.</p>
+      <a href="#dasar" class="btn-primary"><i class="fas fa-book-open"></i> Mulai Belajar</a>
     </div>
-    <div class="hero-visual decorative">
-      <div class="triangle-scene">
-        <div class="triangle-main"></div>
-        <span class="triangle-label label-depan">Depan (a)</span>
-        <span class="triangle-label label-miring">Miring (c)</span>
-        <span class="triangle-label label-samping">Samping (b)</span>
-        <span class="triangle-label label-sudut">α</span>
-      </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg class="svg-card" viewBox="0 0 430 330" role="img" aria-label="Segitiga trigonometri">
+        <defs>
+          <linearGradient id="triGrad" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#fecaca"/>
+            <stop offset="1" stop-color="#fee2e2"/>
+          </linearGradient>
+          <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#991b1b" flood-opacity=".18"/>
+          </filter>
+        </defs>
+        <rect x="10" y="10" width="410" height="310" rx="28" fill="#fffafa" stroke="#fecaca"/>
+        <polygon points="105,245 335,245 105,70" fill="url(#triGrad)" stroke="#dc2626" stroke-width="4" filter="url(#softShadow)"/>
+        <rect x="105" y="217" width="28" height="28" fill="none" stroke="#991b1b" stroke-width="3"/>
+        <path d="M 292 245 A 43 43 0 0 0 274 210" fill="none" stroke="#991b1b" stroke-width="4"/>
+        <text x="300" y="232" fill="#991b1b" font-size="24" font-weight="800">α</text>
+        <text x="203" y="266" fill="#991b1b" font-size="16" font-weight="800">samping</text>
+        <text x="52" y="160" fill="#991b1b" font-size="16" font-weight="800" transform="rotate(-90 52 160)">depan</text>
+        <text x="207" y="135" fill="#991b1b" font-size="16" font-weight="800" transform="rotate(37 207 135)">miring</text>
+        <circle cx="105" cy="245" r="5" fill="#991b1b"/><circle cx="335" cy="245" r="5" fill="#991b1b"/><circle cx="105" cy="70" r="5" fill="#991b1b"/>
+        <text x="91" y="267" fill="#1f2937" font-size="15" font-weight="800">C</text>
+        <text x="336" y="267" fill="#1f2937" font-size="15" font-weight="800">A</text>
+        <text x="91" y="58" fill="#1f2937" font-size="15" font-weight="800">B</text>
+      </svg>
     </div>
   </div>
-</section>
+</header>
 
 <main>
-
-<!-- Pendahuluan -->
-<section id="pendahuluan" class="section">
+<section id="dasar" class="section">
   <div class="section-header reveal">
-    <span class="section-tag">Pendahuluan</span>
-    <h2>Selamat Datang di Modul Trigonometri</h2>
-    <p class="section-desc">Modul ini dirancang khusus untuk membantu kamu memahami Trigonometri dengan cara yang sederhana, runtut, dan menyenangkan.</p>
-  </div>
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-book-open card-icon"></i> Materi Ini Membahas Apa?</div>
-    <div class="card-body">
-      <ul>
-        <li>Perbandingan trigonometri pada segitiga siku-siku (sinus, cosinus, tangen, dan perbandingan lainnya)</li>
-        <li>Sudut-sudut istimewa (30°, 45°, 60°)</li>
-        <li>Nilai trigonometri di berbagai kuadran</li>
-        <li>Aturan Sinus dan Aturan Cosinus</li>
-        <li>Luas segitiga menggunakan trigonometri</li>
-        <li>Konversi koordinat Cartesius ke koordinat kutub (polar)</li>
-      </ul>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-star card-icon"></i> Kenapa Materi Ini Penting?</div>
-      <div class="card-body">
-        <p>Trigonometri sangat penting karena banyak digunakan dalam kehidupan nyata. Misalnya, untuk menghitung tinggi gedung tanpa harus mengukurnya langsung, menentukan jarak antar kapal di laut, membuat peta, bahkan dalam bidang teknik dan arsitektur.</p>
-      </div>
-    </div>
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-lightbulb card-icon"></i> Cara Belajar Terbaik</div>
-      <div class="card-body">
-        <p>Baca modul secara berurutan dari awal hingga akhir. Pahami konsep dasar terlebih dahulu sebelum menghafal rumus. Pelajari contoh soal dengan cermat, lalu coba kerjakan sendiri tanpa melihat jawaban.</p>
-      </div>
-    </div>
-  </div>
-  <div class="card reveal" style="background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-color: var(--primary);">
-    <div class="card-title"><i class="fas fa-heart card-icon" style="background: var(--primary); color: white;"></i> Saran untuk Pemula</div>
-    <div class="card-body">
-      <p><strong>Jangan terburu-buru.</strong> Matematika bukan tentang cepat, tapi tentang benar. Setiap rumus dalam modul ini dilengkapi dengan penjelasan arti simbolnya, sehingga kamu tidak perlu menghafal secara membabi buta. Fokus pada pemahaman, dan hafalan akan mengikuti dengan sendirinya.</p>
-    </div>
+    <span class="section-tag"><i class="fas fa-layer-group"></i> Dasar</span>
+    <h2>Urutan Belajar Trigonometri dari Nol</h2>
+    <p class="section-desc">Trigonometri itu intinya membaca hubungan antara sudut dan sisi segitiga. Jangan mulai dari hafalan dulu, mulai dari gambar.</p>
   </div>
 
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-route card-icon"></i> Metode Belajar Bertahap</div>
+  <div class="card reveal soft-card">
+    <div class="card-title"><i class="fas fa-map card-icon"></i> Alur Paling Aman Saat Mengerjakan Soal</div>
     <div class="card-body">
-      <p>Kalau matematika terasa sulit, jangan langsung menghafal semua rumus. Pakai alur ini dulu agar otak lebih mudah menangkap polanya.</p>
-      <div class="study-steps">
-        <div class="study-step">
-          <strong>Pahami gambar atau bentuk soalnya.</strong>
-          <p>Tentukan apakah soalnya tentang segitiga siku-siku, segitiga sembarang, luas segitiga, kuadran, atau koordinat.</p>
-        </div>
-        <div class="study-step">
-          <strong>Tulis diketahui dan ditanya.</strong>
-          <p>Jangan langsung hitung. Tulis dulu nilai sisi, sudut, dan apa yang dicari supaya tidak salah rumus.</p>
-        </div>
-        <div class="study-step">
-          <strong>Pilih rumus berdasarkan kondisi soal.</strong>
-          <p>Segitiga siku-siku pakai sin, cos, tan. Segitiga sembarang bisa pakai aturan sinus atau cosinus.</p>
-        </div>
-        <div class="study-step">
-          <strong>Substitusi pelan-pelan.</strong>
-          <p>Masukkan angka ke rumus satu per satu. Hindari melompat langkah karena biasanya kesalahan muncul di bagian ini.</p>
-        </div>
-        <div class="study-step">
-          <strong>Periksa apakah jawabannya masuk akal.</strong>
-          <p>Contohnya, sisi miring harus paling panjang, nilai sin/cos sudut lancip tidak boleh lebih dari 1, dan satuan harus sesuai.</p>
-        </div>
+      <div class="lesson-flow">
+        <div class="flow-card"><strong><i class="fas fa-1"></i> Lihat bentuk soal</strong><p>Apakah segitiga siku-siku, segitiga sembarang, soal kuadran, luas, atau koordinat?</p></div>
+        <div class="flow-card"><strong><i class="fas fa-2"></i> Tentukan acuan</strong><p>Kalau ada sudut \(\alpha\), semua sisi harus dilihat dari posisi sudut \(\alpha\).</p></div>
+        <div class="flow-card"><strong><i class="fas fa-3"></i> Tulis diketahui</strong><p>Catat sisi, sudut, jarak, arah kapal, tinggi, atau koordinat yang diberikan.</p></div>
+        <div class="flow-card"><strong><i class="fas fa-4"></i> Pilih rumus</strong><p>Baru masukkan angka. Jangan memilih rumus sebelum tahu jenis soalnya.</p></div>
       </div>
     </div>
   </div>
 
   <div class="card reveal">
-    <div class="card-title"><i class="fas fa-map-signs card-icon"></i> Cara Memilih Rumus dengan Cepat</div>
+    <div class="card-title"><i class="fas fa-filter card-icon"></i> Cara Cepat Memilih Rumus</div>
     <div class="card-body">
-      <p>Bagian ini penting karena banyak siswa sebenarnya bisa menghitung, tetapi bingung memilih rumus yang tepat.</p>
       <div class="decision-grid">
-        <div class="decision-card">
-          <h4><i class="fas fa-right-angle"></i> Ada segitiga siku-siku?</h4>
-          <p>Gunakan perbandingan dasar trigonometri.</p>
-          <span class="rumus-pill">sin, cos, tan</span>
-        </div>
-        <div class="decision-card">
-          <h4><i class="fas fa-triangle-exclamation"></i> Segitiga sembarang + pasangan sisi-sudut?</h4>
-          <p>Jika ada sisi dan sudut yang saling berhadapan, biasanya paling mudah pakai aturan sinus.</p>
-          <span class="rumus-pill">Aturan Sinus</span>
-        </div>
-        <div class="decision-card">
-          <h4><i class="fas fa-draw-polygon"></i> Diketahui 2 sisi dan sudut apit?</h4>
-          <p>Kalau sudutnya berada di antara dua sisi yang diketahui, gunakan aturan cosinus.</p>
-          <span class="rumus-pill">Aturan Cosinus</span>
-        </div>
-        <div class="decision-card">
-          <h4><i class="fas fa-ruler-combined"></i> Ditanya luas segitiga?</h4>
-          <p>Jika diketahui dua sisi dan satu sudut apit, gunakan rumus luas trigonometri.</p>
-          <span class="rumus-pill">L = 1/2 ab sin C</span>
-        </div>
+        <div class="decision-card"><h4><i class="fas fa-right-long"></i> Segitiga siku-siku</h4><p>Pakai perbandingan dasar: sin, cos, tan.</p><span class="pill">SOH CAH TOA</span></div>
+        <div class="decision-card"><h4><i class="fas fa-arrows-left-right-to-line"></i> Ada pasangan sisi-sudut berhadapan</h4><p>Biasanya lebih mudah pakai aturan sinus.</p><span class="pill">\(\frac{a}{\sin A}\)</span></div>
+        <div class="decision-card"><h4><i class="fas fa-triangle-exclamation"></i> Diketahui 2 sisi dan sudut apit</h4><p>Gunakan aturan cosinus untuk mencari sisi ketiga.</p><span class="pill">\(a^2=b^2+c^2-2bc\cos A\)</span></div>
+        <div class="decision-card"><h4><i class="fas fa-chart-area"></i> Ditanya luas segitiga</h4><p>Kalau diketahui 2 sisi dan sudut apit, pakai luas trigonometri.</p><span class="pill">\(L=\frac12 ab\sin C\)</span></div>
       </div>
+    </div>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-title"><i class="fas fa-clipboard-check card-icon"></i> Materi yang Harus Dikuasai untuk Ujian</div>
+    <div class="card-body">
+      <p>Fokus belajarnya ada pada bagian berikut:</p>
+      <span class="pill">sisi depan-samping-miring</span>
+      <span class="pill">tabel sudut istimewa</span>
+      <span class="pill">menghitung sudut</span>
+      <span class="pill">soal cerita perahu</span>
+      <span class="pill">aturan sinus</span>
+      <span class="pill">aturan cosinus</span>
+      <span class="pill">luas segitiga</span>
+      <span class="pill">koordinat polar</span>
+      <div class="notice" style="margin-top:16px"><i class="fas fa-lightbulb"></i><p><strong>Kunci cepat:</strong> kalau bingung, gambar ulang soalnya dulu. Hampir semua soal trigonometri jadi lebih mudah setelah sisi dan sudutnya terlihat jelas.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Bab 1 -->
-<section id="bab1" class="section">
+<section id="acuan" class="section">
   <div class="section-header reveal">
-    <span class="section-tag">Bab 1</span>
+    <span class="section-tag"><i class="fas fa-crosshairs"></i> Titik Acuan</span>
+    <h2>Menentukan Sisi Depan, Samping, dan Miring</h2>
+    <p class="section-desc">Ini bagian paling penting. Sisi depan dan samping bisa berubah tergantung sudut acuan yang dilihat.</p>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-title"><i class="fas fa-location-crosshairs card-icon"></i> Aturan Utama</div>
+    <div class="card-body">
+      <div class="diagram-grid">
+        <div class="diagram-box">
+          <svg viewBox="0 0 380 290" width="100%" aria-label="Segitiga siku-siku dengan sudut acuan alpha di A">
+            <polygon points="70,230 320,230 70,55" fill="#fee2e2" stroke="#dc2626" stroke-width="4"/>
+            <rect x="70" y="202" width="28" height="28" fill="#fff" stroke="#991b1b" stroke-width="3"/>
+            <path d="M 275 230 A 45 45 0 0 0 255 193" fill="none" stroke="#991b1b" stroke-width="4"/>
+            <text x="284" y="216" fill="#991b1b" font-size="24" font-weight="900">α</text>
+            <text x="182" y="253" fill="#991b1b" font-size="16" font-weight="900">samping</text>
+            <text x="24" y="147" fill="#991b1b" font-size="16" font-weight="900" transform="rotate(-90 24 147)">depan</text>
+            <text x="178" y="122" fill="#991b1b" font-size="16" font-weight="900" transform="rotate(35 178 122)">miring</text>
+            <text x="56" y="252" fill="#1f2937" font-size="16" font-weight="900">C</text>
+            <text x="323" y="252" fill="#1f2937" font-size="16" font-weight="900">A</text>
+            <text x="57" y="44" fill="#1f2937" font-size="16" font-weight="900">B</text>
+          </svg>
+        </div>
+        <div>
+          <div class="study-steps">
+            <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Cari sisi miring dulu</h4><p>Sisi miring adalah sisi di depan sudut \(90^\circ\). Sisi ini selalu paling panjang dan tidak berubah.</p></div></div>
+            <div class="step-card"><div class="step-number">2</div><div class="step-content"><h4>Lihat sudut acuan</h4><p>Di gambar, sudut acuan adalah \(\alpha\) di titik A. Jadi semua nama sisi dilihat dari titik A.</p></div></div>
+            <div class="step-card"><div class="step-number">3</div><div class="step-content"><h4>Tentukan depan dan samping</h4><p>Depan = sisi yang berhadapan dengan \(\alpha\). Samping = sisi yang menempel pada \(\alpha\), tetapi bukan sisi miring.</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="notice" style="margin-top:18px"><i class="fas fa-triangle-exclamation"></i><p><strong>Jangan pakai sudut 90° sebagai acuan.</strong> Sudut acuan biasanya sudut lancip yang diberi tanda seperti \(\alpha\), A, B, atau C.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="perbandingan" class="section">
+  <div class="section-header reveal">
+    <span class="section-tag"><i class="fas fa-divide"></i> Perbandingan</span>
     <h2>Perbandingan Trigonometri pada Segitiga Siku-siku</h2>
-    <p class="section-desc">Memahami fondasi trigonometri melalui hubungan sisi-sisi dan sudut dalam segitiga siku-siku.</p>
+    <p class="section-desc">Setelah tahu nama sisi, rumus sin, cos, dan tan jadi jauh lebih mudah.</p>
   </div>
 
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-shapes card-icon"></i> A. Pengertian Dasar</div>
-    <div class="card-body">
-      <p>Trigonometri berasal dari bahasa Yunani: <em>trigonon</em> (tiga sudut) dan <em>metron</em> (ukuran). Secara harfiah berarti "pengukuran tiga sudut". Trigonometri mempelajari hubungan antara sisi-sisi dan sudut-sudut dalam segitiga, khususnya segitiga siku-siku.</p>
-      <p>Segitiga siku-siku memiliki tiga nama sisi yang penting:</p>
-      <ul>
-        <li><strong>Sisi Miring (Hipotenusa):</strong> Sisi di depan sudut 90°. Sisi terpanjang.</li>
-        <li><strong>Sisi Depan:</strong> Sisi yang berhadapan dengan sudut yang sedang diamati (selain 90°).</li>
-        <li><strong>Sisi Samping:</strong> Sisi yang membentuk sudut tersebut bersama sisi miring.</li>
-      </ul>
-      <p>Misalkan sudut yang diamati adalah \( \alpha \). Maka:</p>
-      <div class="math-scroll">
-        \[ \begin{array}{c} \text{Sisi miring = } c \\ \text{Sisi depan sudut } \alpha = a \\ \text{Sisi samping sudut } \alpha = b \end{array} \]
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-brain card-icon"></i> B. Konsep Penting</div>
-    <div class="card-body">
-      <p>Ada <strong>enam perbandingan trigonometri dasar</strong> yang muncul dari kombinasi tiga sisi segitiga siku-siku:</p>
-      <ul>
-        <li><strong>Sinus (sin):</strong> sisi depan / sisi miring</li>
-        <li><strong>Cosinus (cos):</strong> sisi samping / sisi miring</li>
-        <li><strong>Tangen (tan):</strong> sisi depan / sisi samping</li>
-        <li><strong>Cosecan (csc):</strong> kebalikan sinus = miring / depan</li>
-        <li><strong>Secan (sec):</strong> kebalikan cosinus = miring / samping</li>
-        <li><strong>Cotangen (cot):</strong> kebalikan tangen = samping / depan</li>
-      </ul>
-      <p>Nilai sinus dan cosinus selalu antara -1 dan 1, karena sisi depan atau samping tidak akan pernah lebih panjang dari sisi miring. Sedangkan tangen bisa bernilai berapa saja.</p>
-    </div>
-  </div>
-
-  <div class="card formula-card reveal">
-    <div class="card-title"><i class="fas fa-square-root-alt card-icon"></i> C. Rumus Utama</div>
+  <div class="card reveal formula-card">
+    <div class="card-title"><i class="fas fa-square-root-variable card-icon"></i> Rumus Dasar</div>
     <div class="card-body">
       <div class="math-scroll">
-        \[ \sin \alpha = \frac{\text{sisi depan}}{\text{sisi miring}} = \frac{a}{c} \]
+        \[
+        \sin\alpha=\frac{\text{depan}}{\text{miring}},\quad
+        \cos\alpha=\frac{\text{samping}}{\text{miring}},\quad
+        \tan\alpha=\frac{\text{depan}}{\text{samping}}
+        \]
       </div>
+      <p>Hafalan paling gampang: <strong>Sin = Depan/Miring, Cos = Samping/Miring, Tan = Depan/Samping.</strong></p>
       <div class="math-scroll">
-        \[ \cos \alpha = \frac{\text{sisi samping}}{\text{sisi miring}} = \frac{b}{c} \]
-      </div>
-      <div class="math-scroll">
-        \[ \tan \alpha = \frac{\text{sisi depan}}{\text{sisi samping}} = \frac{a}{b} \]
-      </div>
-      <div class="math-scroll">
-        \[ \csc \alpha = \frac{\text{sisi miring}}{\text{sisi depan}} = \frac{c}{a} = \frac{1}{\sin \alpha} \]
-      </div>
-      <div class="math-scroll">
-        \[ \sec \alpha = \frac{\text{sisi miring}}{\text{sisi samping}} = \frac{c}{b} = \frac{1}{\cos \alpha} \]
-      </div>
-      <div class="math-scroll">
-        \[ \cot \alpha = \frac{\text{sisi samping}}{\text{sisi depan}} = \frac{b}{a} = \frac{1}{\tan \alpha} \]
-      </div>
-      <p class="mt-4"><strong>Keterangan:</strong> \( \alpha \) = sudut yang diamati, \( a \) = depan, \( b \) = samping, \( c \) = miring.</p>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-lightbulb card-icon"></i> D. Cara Memahami Rumus</div>
-    <div class="card-body">
-      <p>Prinsip kunci: <strong>"Miring selalu di bawah untuk sin dan cos"</strong>. Artinya, dalam rumus sinus dan cosinus, sisi miring selalu menjadi penyebut.</p>
-      <p>Untuk membedakan sisi depan dan sisi samping, tentukan dulu sudut mana yang sedang diamati. Sisi yang berhadapan langsung dengan sudut \( \alpha \) (tidak menyentuh sudut \( \alpha \)) adalah <strong>sisi depan</strong>. Sisi yang membentuk sudut \( \alpha \) bersama sisi miring adalah <strong>sisi samping</strong>.</p>
-      <p>Hubungan penting:</p>
-      <div class="math-scroll">
-        \[ \tan \alpha = \frac{\sin \alpha}{\cos \alpha} \]
+        \[
+        \csc\alpha=\frac{\text{miring}}{\text{depan}},\quad
+        \sec\alpha=\frac{\text{miring}}{\text{samping}},\quad
+        \cot\alpha=\frac{\text{samping}}{\text{depan}}
+        \]
       </div>
     </div>
   </div>
 
   <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> Contoh Soal 1</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Pada segitiga siku-siku ABC, siku-siku di B, diketahui panjang AB = 8 cm dan BC = 6 cm. Tentukan nilai sin A, cos A, dan tan A!</p>
-    <div class="example-meta">
-      <div class="meta-box"><strong>Diketahui</strong><span>AB = 8 cm, BC = 6 cm, ∠B = 90°</span></div>
-      <div class="meta-box"><strong>Ditanya</strong><span>sin A, cos A, tan A</span></div>
-      <div class="meta-box"><strong>Rumus</strong><span>Perbandingan trigonometri dasar</span></div>
-    </div>
+    <div class="example-header"><i class="fas fa-calculator"></i> Contoh 1 — Mencari Sin, Cos, Tan</div>
+    <p style="color:var(--muted); margin-bottom:14px">Diketahui segitiga siku-siku dengan sisi depan sudut A = 6 cm dan sisi samping sudut A = 8 cm. Tentukan \(\sin A\), \(\cos A\), dan \(\tan A\).</p>
     <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Gambar segitiga dan tentukan sisi-sisinya</h4>
-          <p>Sudut B = 90°. Kita amati sudut A.</p>
-          <p>Sisi samping A = AB = 8 cm. Sisi depan A = BC = 6 cm. Sisi miring AC belum diketahui.</p>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Hitung sisi miring dengan Teorema Pythagoras</h4>
-          <div class="math-scroll">
-            \[ AC^2 = AB^2 + BC^2 = 8^2 + 6^2 = 64 + 36 = 100 \]
-            \[ AC = \sqrt{100} = 10 \text{ cm} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <div class="step-content">
-          <h4>Hitung perbandingan trigonometri untuk sudut A</h4>
-          <div class="math-scroll">
-            \[ \sin A = \frac{BC}{AC} = \frac{6}{10} = \frac{3}{5} \]
-            \[ \cos A = \frac{AB}{AC} = \frac{8}{10} = \frac{4}{5} \]
-            \[ \tan A = \frac{BC}{AB} = \frac{6}{8} = \frac{3}{4} \]
-          </div>
-        </div>
-      </div>
+      <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Cari sisi miring</h4><div class="math-scroll">\[c^2=6^2+8^2=36+64=100\Rightarrow c=10\]</div></div></div>
+      <div class="step-card"><div class="step-number">2</div><div class="step-content"><h4>Masukkan ke rumus</h4><div class="math-scroll">\[\sin A=\frac{6}{10}=\frac35,\quad \cos A=\frac{8}{10}=\frac45,\quad \tan A=\frac{6}{8}=\frac34\]</div></div></div>
     </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, nilai sin A = \( \frac{3}{5} \), cos A = \( \frac{4}{5} \), dan tan A = \( \frac{3}{4} \).
-    </div>
+    <div class="answer-box"><i class="fas fa-check-circle"></i> Jadi, \(\sin A=\frac35\), \(\cos A=\frac45\), dan \(\tan A=\frac34\).</div>
   </div>
 
   <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-ruler-combined"></i> Contoh Soal 2 (Aplikasi Nyata)</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Seorang siswa ingin mengukur tinggi tiang bendera. Ia berdiri pada jarak 10 meter dari tiang. Dari posisi matanya (tinggi 1,6 m), ia melihat puncak tiang dengan sudut elevasi 32,81°. Tentukan tinggi tiang bendera!</p>
+    <div class="example-header"><i class="fas fa-flag"></i> Contoh 2 — Menghitung Tinggi Tiang</div>
+    <p style="color:var(--muted); margin-bottom:14px">Jarak siswa ke tiang 10 m. Sudut elevasi ke puncak tiang \(32{,}81^\circ\). Tinggi mata siswa 1,6 m. Tentukan tinggi tiang.</p>
     <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Pahami situasi dan gambar sketsa</h4>
-          <p>Siswa berdiri 10 meter dari tiang. Sudut elevasi = 32,81°. Tinggi mata dari tanah = 1,6 meter.</p>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Tentukan bagian tiang di atas mata siswa (h)</h4>
-          <div class="math-scroll">
-            \[ \tan 32{,}81^{\circ} = \frac{h}{10} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <div class="step-content">
-          <h4>Hitung nilai h</h4>
-          <div class="math-scroll">
-            \[ h = 10 \times \tan 32{,}81^{\circ} = 10 \times 0{,}645 = 6{,}45 \text{ meter} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">4</div>
-        <div class="step-content">
-          <h4>Hitung tinggi total tiang bendera</h4>
-          <div class="math-scroll">
-            \[ \text{Tinggi tiang} = h + 1{,}6 = 6{,}45 + 1{,}6 = 8{,}05 \text{ meter} \]
-          </div>
-        </div>
-      </div>
+      <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Gunakan tangen</h4><p>Yang diketahui sisi samping = 10 m, yang dicari sisi depan = tinggi di atas mata.</p><div class="math-scroll">\[\tan 32{,}81^\circ=\frac{h}{10}\]</div></div></div>
+      <div class="step-card"><div class="step-number">2</div><div class="step-content"><h4>Hitung tinggi di atas mata</h4><div class="math-scroll">\[h=10\times \tan 32{,}81^\circ=10\times0{,}645=6{,}45\text{ m}\]</div></div></div>
+      <div class="step-card"><div class="step-number">3</div><div class="step-content"><h4>Tambahkan tinggi mata</h4><div class="math-scroll">\[\text{tinggi tiang}=6{,}45+1{,}6=8{,}05\text{ m}\]</div></div></div>
     </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, tinggi tiang bendera adalah 8,05 meter.
+    <div class="answer-box"><i class="fas fa-check-circle"></i> Jadi, tinggi tiang adalah 8,05 m.</div>
+  </div>
+</section>
+
+<section id="istimewa" class="section">
+  <div class="section-header reveal">
+    <span class="section-tag"><i class="fas fa-star"></i> Sudut Istimewa</span>
+    <h2>Tabel Sudut Istimewa Sin, Cos, dan Tan</h2>
+    <p class="section-desc">Sudut istimewa wajib hafal karena sering muncul di soal ulangan dan soal cerita.</p>
+  </div>
+
+  <div class="card reveal formula-card">
+    <div class="card-title"><i class="fas fa-table card-icon"></i> Tabel Nilai Trigonometri</div>
+    <div class="card-body">
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Sudut</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="row-head">\(\sin\alpha\)</td><td>0</td><td>\(\frac12\)</td><td>\(\frac{\sqrt2}{2}\)</td><td>\(\frac{\sqrt3}{2}\)</td><td>1</td></tr>
+            <tr><td class="row-head">\(\cos\alpha\)</td><td>1</td><td>\(\frac{\sqrt3}{2}\)</td><td>\(\frac{\sqrt2}{2}\)</td><td>\(\frac12\)</td><td>0</td></tr>
+            <tr><td class="row-head">\(\tan\alpha\)</td><td>0</td><td>\(\frac{\sqrt3}{3}\)</td><td>1</td><td>\(\sqrt3\)</td><td>tidak terdefinisi</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Di HP, tabel bisa digeser ke samping.</p>
+      <div class="notice" style="margin-top:16px"><i class="fas fa-brain"></i><p><strong>Pola mudah:</strong> nilai sinus naik dari 0 ke 1. Nilai cosinus kebalikannya, turun dari 1 ke 0. Jadi kalau hafal baris sin, baris cos tinggal dibalik urutannya.</p></div>
     </div>
   </div>
 
   <div class="grid-2">
     <div class="card reveal">
-      <div class="card-title"><i class="fas fa-exclamation-triangle card-icon"></i> G. Kesalahan yang Sering Terjadi</div>
+      <div class="card-title"><i class="fas fa-arrow-up-1-9 card-icon"></i> Pola Sinus</div>
       <div class="card-body">
-        <ul>
-          <li>Salah menentukan sisi depan dan sisi samping.</li>
-          <li>Lupa menghitung sisi miring terlebih dahulu dengan Teorema Pythagoras.</li>
-          <li>Membalik rumus sinus dan cosinus.</li>
-          <li>Menggunakan sudut 90° sebagai sudut acuan.</li>
-        </ul>
+        <p>Untuk 0°, 30°, 45°, 60°, 90°:</p>
+        <div class="math-scroll">\[\sin\alpha=\frac{\sqrt0}{2},\frac{\sqrt1}{2},\frac{\sqrt2}{2},\frac{\sqrt3}{2},\frac{\sqrt4}{2}\]</div>
+        <p>Hasilnya: \(0,\frac12,\frac{\sqrt2}{2},\frac{\sqrt3}{2},1\).</p>
       </div>
     </div>
     <div class="card reveal">
-      <div class="card-title"><i class="fas fa-bolt card-icon"></i> H. Tips Cepat</div>
+      <div class="card-title"><i class="fas fa-arrow-down-1-9 card-icon"></i> Pola Cosinus</div>
       <div class="card-body">
-        <ul>
-          <li>Gunakan tangan sebagai mnemonic: telunjuk = Sinus, jari tengah = Cosinus, jari manis = Tangen.</li>
-          <li>Hafalkan: "Sami Desi Miring Miring" (Sin = Depan/Miring, Cos = Samping/Miring).</li>
-          <li>Selalu mulai dengan menggambar segitiga.</li>
-          <li>Periksa: nilai sin dan cos harus antara 0 dan 1 untuk sudut lancip.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal" style="background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-color: var(--primary);">
-    <div class="card-title"><i class="fas fa-bullseye card-icon" style="background: var(--primary); color: white;"></i> I. Inti Materi</div>
-    <div class="card-body">
-      <p>Dalam segitiga siku-siku, tiga perbandingan utama adalah:</p>
-      <div class="math-scroll">
-        \[ \sin \alpha = \frac{\text{depan}}{\text{miring}}, \quad \cos \alpha = \frac{\text{samping}}{\text{miring}}, \quad \tan \alpha = \frac{\text{depan}}{\text{samping}} \]
-      </div>
-      <p>Dengan memahami ketiga perbandingan ini, kamu dapat menyelesaikan berbagai masalah pengukuran jarak dan tinggi dalam kehidupan nyata.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Bab 2 -->
-<section id="bab2" class="section">
-  <div class="section-header reveal">
-    <span class="section-tag">Bab 2</span>
-    <h2>Sudut-sudut Istimewa</h2>
-    <p class="section-desc">Sudut 30°, 45°, dan 60° — nilainya tetap, sering muncul, dan mudah diturunkan dari segitiga khusus.</p>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-shapes card-icon"></i> A. Pengertian Dasar</div>
-    <div class="card-body">
-      <p>Sudut-sudut istimewa adalah sudut-sudut tertentu yang nilai perbandingan trigonometrinya mudah dihitung tanpa kalkulator: <strong>30°, 45°, dan 60°</strong>.</p>
-      <p>Sudut 30° dan 60° muncul dari segitiga sama sisi yang dibagi dua. Sudut 45° muncul dari segitiga siku-siku sama kaki.</p>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-brain card-icon"></i> B. Konsep Penting</div>
-    <div class="card-body">
-      <ul>
-        <li>Segitiga sama sisi dibagi dua menghasilkan sudut 30° dan 60°.</li>
-        <li>Segitiga siku-siku sama kaki menghasilkan sudut 45°.</li>
-        <li>Nilai trigonometri selalu melibatkan \( \sqrt{2} \), \( \sqrt{3} \), atau pecahan sederhana.</li>
-        <li>30° dan 60°: sisi berbanding \( 1 : \sqrt{3} : 2 \).</li>
-        <li>45°: sisi berbanding \( 1 : 1 : \sqrt{2} \).</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card formula-card reveal">
-    <div class="card-title"><i class="fas fa-table card-icon"></i> C. Rumus Utama — Tabel Nilai</div>
-    <div class="card-body">
-      <div class="math-scroll">
-        \[ \begin{array}{c|c|c|c} \theta & \sin \theta & \cos \theta & \tan \theta \\ \hline \\ 30^{\circ} & \frac{1}{2} & \frac{\sqrt{3}}{2} & \frac{\sqrt{3}}{3} \\ \\ 45^{\circ} & \frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & 1 \\ \\ 60^{\circ} & \frac{\sqrt{3}}{2} & \frac{1}{2} & \sqrt{3} \end{array} \]
-      </div>
-      <p class="mt-4">Keterangan:</p>
-      <ul>
-        <li>\( \sin 30^{\circ} = \cos 60^{\circ} \) karena berpelengkap (jumlah 90°).</li>
-        <li>\( \sin 45^{\circ} = \cos 45^{\circ} \) karena segitiga sama kaki simetris.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-lightbulb card-icon"></i> D. Cara Memahami Rumus</div>
-    <div class="card-body">
-      <p><strong>Untuk 45°:</strong> Buat segitiga siku-siku dengan sisi siku-siku 1 cm. Menurut Pythagoras, miring = \( \sqrt{2} \). Maka:</p>
-      <div class="math-scroll">
-        \[ \sin 45^{\circ} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2} \]
-      </div>
-      <p><strong>Untuk 30° dan 60°:</strong> Segitiga sama sisi sisi 2 cm, dibagi garis tinggi. Terbentuk segitiga siku-siku dengan sisi miring 2, sisi terpendek 1, dan sisi lainnya \( \sqrt{3} \).</p>
-      <div class="math-scroll">
-        \[ \sin 30^{\circ} = \frac{1}{2}, \quad \cos 30^{\circ} = \frac{\sqrt{3}}{2} \]
-        \[ \sin 60^{\circ} = \frac{\sqrt{3}}{2}, \quad \cos 60^{\circ} = \frac{1}{2} \]
+        <p>Cosinus adalah kebalikan urutan sinus:</p>
+        <div class="math-scroll">\[\cos\alpha=1,\frac{\sqrt3}{2},\frac{\sqrt2}{2},\frac12,0\]</div>
+        <p>Contoh: \(\sin 30^\circ=\cos 60^\circ=\frac12\).</p>
       </div>
     </div>
   </div>
 
   <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> E. Contoh Soal 1</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Hitunglah nilai dari \( \sin 30^{\circ} \times \cos 60^{\circ} + \tan 45^{\circ} \)!</p>
+    <div class="example-header"><i class="fas fa-calculator"></i> Contoh — Operasi Sudut Istimewa</div>
+    <p style="color:var(--muted); margin-bottom:14px">Hitung \(\sin 30^\circ\times\cos60^\circ+\tan45^\circ\).</p>
     <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Tuliskan nilai masing-masing perbandingan</h4>
-          <div class="math-scroll">
-            \[ \sin 30^{\circ} = \frac{1}{2}, \quad \cos 60^{\circ} = \frac{1}{2}, \quad \tan 45^{\circ} = 1 \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Substitusikan ke dalam soal</h4>
-          <div class="math-scroll">
-            \[ \frac{1}{2} \times \frac{1}{2} + 1 = \frac{1}{4} + 1 \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <div class="step-content">
-          <h4>Hitung hasilnya</h4>
-          <div class="math-scroll">
-            \[ = \frac{1}{4} + \frac{4}{4} = \frac{5}{4} \]
-          </div>
-        </div>
-      </div>
+      <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Tulis nilainya</h4><div class="math-scroll">\[\sin30^\circ=\frac12,\quad\cos60^\circ=\frac12,\quad\tan45^\circ=1\]</div></div></div>
+      <div class="step-card"><div class="step-number">2</div><div class="step-content"><h4>Hitung</h4><div class="math-scroll">\[\frac12\times\frac12+1=\frac14+1=\frac54\]</div></div></div>
     </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, hasilnya adalah \( \frac{5}{4} \).
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-exclamation-triangle card-icon"></i> G. Kesalahan yang Sering Terjadi</div>
-      <div class="card-body">
-        <ul>
-          <li>Salah menghafal nilai sin 30° dan sin 60°. Ingat: sin 30° = 1/2 (kecil), sin 60° = √3/2 (besar).</li>
-          <li>Lupa menyederhanakan bentuk akar. Misalnya, \( \frac{1}{\sqrt{3}} \) harus dirasionalkan menjadi \( \frac{\sqrt{3}}{3} \).</li>
-          <li>Mengira tan 45° = \( \sqrt{2} \). Padahal tan 45° = 1.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-bolt card-icon"></i> H. Tips Cepat</div>
-      <div class="card-body">
-        <ul>
-          <li>Hafalkan pola sin: \( \frac{\sqrt{1}}{2}, \frac{\sqrt{2}}{2}, \frac{\sqrt{3}}{2} \) untuk 30°, 45°, 60°.</li>
-          <li>Cosinus berkebalikan: mulai dari \( \frac{\sqrt{3}}{2} \) untuk 30°.</li>
-          <li>Tangen = sin/cos. Jadi tan 30° = \( \frac{1}{\sqrt{3}} \).</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal" style="background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-color: var(--primary);">
-    <div class="card-title"><i class="fas fa-bullseye card-icon" style="background: var(--primary); color: white;"></i> I. Inti Materi</div>
-    <div class="card-body">
-      <p>Sudut-sudut istimewa memiliki nilai trigonometri yang tetap dan dapat diturunkan dari segitiga siku-siku khusus.</p>
-      <div class="math-scroll">
-        \[ \begin{array}{c|c|c|c} \theta & \sin \theta & \cos \theta & \tan \theta \\ \hline 30^{\circ} & \frac{1}{2} & \frac{\sqrt{3}}{2} & \frac{\sqrt{3}}{3} \\ 45^{\circ} & \frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & 1 \\ 60^{\circ} & \frac{\sqrt{3}}{2} & \frac{1}{2} & \sqrt{3} \end{array} \]
-      </div>
-    </div>
+    <div class="answer-box"><i class="fas fa-check-circle"></i> Jadi, hasilnya \(\frac54\).</div>
   </div>
 </section>
 
-<!-- Bab 3 -->
-<section id="bab3" class="section">
+<section id="kuadran" class="section">
   <div class="section-header reveal">
-    <span class="section-tag">Bab 3</span>
-    <h2>Trigonometri di Berbagai Kuadran</h2>
-    <p class="section-desc">Memahami nilai trigonometri untuk sudut besar (>90°) melalui konsep sudut berelasi dan tanda di setiap kuadran.</p>
+    <span class="section-tag"><i class="fas fa-chart-pie"></i> Kuadran</span>
+    <h2>Nilai Trigonometri di Berbagai Kuadran</h2>
+    <p class="section-desc">Kuadran menentukan tanda positif atau negatif pada sin, cos, dan tan.</p>
   </div>
 
   <div class="card reveal">
-    <div class="card-title"><i class="fas fa-shapes card-icon"></i> A. Pengertian Dasar</div>
+    <div class="card-title"><i class="fas fa-circle-nodes card-icon"></i> Tanda di Setiap Kuadran</div>
     <div class="card-body">
-      <p>Bidang koordinat Cartesius dibagi menjadi empat <strong>kuadran</strong>:</p>
-      <ul>
-        <li><strong>Kuadran I:</strong> 0° – 90° (kanan atas). Semua nilai positif.</li>
-        <li><strong>Kuadran II:</strong> 90° – 180° (kiri atas). Sinus positif.</li>
-        <li><strong>Kuadran III:</strong> 180° – 270° (kiri bawah). Tangen positif.</li>
-        <li><strong>Kuadran IV:</strong> 270° – 360° (kanan bawah). Cosinus positif.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-brain card-icon"></i> B. Konsep Penting</div>
-    <div class="card-body">
-      <p><strong>Sudut Berelasi:</strong> Sudut yang memiliki hubungan khusus dengan sudut lancip, seperti \( 180^{\circ} - \alpha \), \( 180^{\circ} + \alpha \), \( 360^{\circ} - \alpha \), dan \( -\alpha \).</p>
-      <p><strong>Mnemonic tanda positif:</strong> <span style="color: var(--primary); font-weight: 700;">ALL SIN TAN COS</span> (dibaca berurutan dari Kuadran I ke IV).</p>
-      <div class="diagram-box decorative">
-        <div class="quadrant-wrap">
-          <div class="quadrant-axis-x"></div>
-          <div class="quadrant-axis-y"></div>
-          <div class="quadrant-area q1">I<br><small>ALL +</small></div>
-          <div class="quadrant-area q2">II<br><small>SIN +</small></div>
-          <div class="quadrant-area q3">III<br><small>TAN +</small></div>
-          <div class="quadrant-area q4">IV<br><small>COS +</small></div>
-          <span class="quadrant-label-pos" style="top: -10px; left: 50%; transform: translateX(-50%);">90°</span>
-          <span class="quadrant-label-pos" style="bottom: -10px; left: 50%; transform: translateX(-50%);">270°</span>
-          <span class="quadrant-label-pos" style="left: -10px; top: 50%; transform: translateY(-50%);">180°</span>
-          <span class="quadrant-label-pos" style="right: -10px; top: 50%; transform: translateY(-50%);">0°/360°</span>
+      <div class="diagram-grid">
+        <div class="diagram-box">
+          <svg viewBox="0 0 340 340" width="100%" aria-label="Kuadran trigonometri">
+            <rect x="20" y="20" width="300" height="300" rx="22" fill="#fffafa" stroke="#fecaca"/>
+            <line x1="170" y1="35" x2="170" y2="305" stroke="#1f2937" stroke-width="3"/>
+            <line x1="35" y1="170" x2="305" y2="170" stroke="#1f2937" stroke-width="3"/>
+            <path d="M300 170 l-12 -7 v14 z" fill="#1f2937"/><path d="M170 40 l-7 12 h14 z" fill="#1f2937"/>
+            <text x="225" y="100" text-anchor="middle" font-size="18" font-weight="900" fill="#991b1b">I</text>
+            <text x="225" y="125" text-anchor="middle" font-size="14" font-weight="800" fill="#dc2626">ALL +</text>
+            <text x="115" y="100" text-anchor="middle" font-size="18" font-weight="900" fill="#991b1b">II</text>
+            <text x="115" y="125" text-anchor="middle" font-size="14" font-weight="800" fill="#dc2626">SIN +</text>
+            <text x="115" y="225" text-anchor="middle" font-size="18" font-weight="900" fill="#991b1b">III</text>
+            <text x="115" y="250" text-anchor="middle" font-size="14" font-weight="800" fill="#dc2626">TAN +</text>
+            <text x="225" y="225" text-anchor="middle" font-size="18" font-weight="900" fill="#991b1b">IV</text>
+            <text x="225" y="250" text-anchor="middle" font-size="14" font-weight="800" fill="#dc2626">COS +</text>
+            <text x="302" y="192" font-size="13" font-weight="900">0°/360°</text><text x="182" y="48" font-size="13" font-weight="900">90°</text><text x="36" y="192" font-size="13" font-weight="900">180°</text><text x="182" y="312" font-size="13" font-weight="900">270°</text>
+          </svg>
+        </div>
+        <div>
+          <p>Urutan tanda positifnya bisa diingat dengan:</p>
+          <div class="math-scroll">\[\text{ALL} \rightarrow \text{SIN} \rightarrow \text{TAN} \rightarrow \text{COS}\]</div>
+          <ul class="checklist">
+            <li>Kuadran I: semua positif.</li>
+            <li>Kuadran II: hanya sinus positif.</li>
+            <li>Kuadran III: hanya tangen positif.</li>
+            <li>Kuadran IV: hanya cosinus positif.</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="card formula-card reveal">
-    <div class="card-title"><i class="fas fa-square-root-alt card-icon"></i> C. Rumus Utama — Sudut Berelasi</div>
+  <div class="card reveal formula-card">
+    <div class="card-title"><i class="fas fa-rotate card-icon"></i> Sudut Berelasi yang Sering Muncul</div>
     <div class="card-body">
-      <p><strong>Kuadran II (180° − α):</strong></p>
-      <div class="math-scroll">
-        \[ \sin (180^{\circ} - \alpha) = \sin \alpha \]
-        \[ \cos (180^{\circ} - \alpha) = -\cos \alpha \]
-        \[ \tan (180^{\circ} - \alpha) = -\tan \alpha \]
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Bentuk Sudut</th><th>Kuadran</th><th>Sudut Acuan</th><th>Tanda</th></tr></thead>
+          <tbody>
+            <tr><td class="row-head">\(180^\circ-\alpha\)</td><td>II</td><td>\(\alpha\)</td><td>sin +, cos -, tan -</td></tr>
+            <tr><td class="row-head">\(180^\circ+\alpha\)</td><td>III</td><td>\(\alpha\)</td><td>sin -, cos -, tan +</td></tr>
+            <tr><td class="row-head">\(360^\circ-\alpha\)</td><td>IV</td><td>\(\alpha\)</td><td>sin -, cos +, tan -</td></tr>
+          </tbody>
+        </table>
       </div>
-      <p><strong>Kuadran III (180° + α):</strong></p>
-      <div class="math-scroll">
-        \[ \sin (180^{\circ} + \alpha) = -\sin \alpha \]
-        \[ \cos (180^{\circ} + \alpha) = -\cos \alpha \]
-        \[ \tan (180^{\circ} + \alpha) = \tan \alpha \]
-      </div>
-      <p><strong>Kuadran IV (360° − α):</strong></p>
-      <div class="math-scroll">
-        \[ \sin (360^{\circ} - \alpha) = -\sin \alpha \]
-        \[ \cos (360^{\circ} - \alpha) = \cos \alpha \]
-        \[ \tan (360^{\circ} - \alpha) = -\tan \alpha \]
-      </div>
-      <p><strong>Sudut Negatif (−α):</strong></p>
-      <div class="math-scroll">
-        \[ \sin (-\alpha) = -\sin \alpha \]
-        \[ \cos (-\alpha) = \cos \alpha \]
-        \[ \tan (-\alpha) = -\tan \alpha \]
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-lightbulb card-icon"></i> D. Cara Memahami Rumus</div>
-    <div class="card-body">
-      <p><strong>Analogi cermin:</strong></p>
-      <ul>
-        <li>Kuadran II (180° − α): Seperti melihat bayangan di cermin. Sinus (tinggi) tetap, cosinus (lebar) berubah arah (negatif).</li>
-        <li>Kuadran III (180° + α): Seperti berputar 180° menghadap ke belakang. Tinggi dan lebar berubah arah, sehingga tangen tetap positif.</li>
-        <li>Kuadran IV (360° − α): Seperti berputar penuh lalu mundur sedikit. Lebar (cosinus) tetap positif, tinggi (sinus) negatif.</li>
-      </ul>
     </div>
   </div>
 
   <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> E. Contoh Soal 1</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Diketahui sin A = 3/5, dengan A terletak di Kuadran II. Tentukan nilai cos A dan tan A!</p>
+    <div class="example-header"><i class="fas fa-calculator"></i> Contoh — Nilai di Kuadran II</div>
+    <p style="color:var(--muted); margin-bottom:14px">Diketahui \(\sin A=\frac45\) dan sudut A berada di kuadran II. Tentukan \(\cos A\) dan \(\tan A\).</p>
     <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Gunakan identitas Pythagoras trigonometri</h4>
-          <div class="math-scroll">
-            \[ \sin^2 A + \cos^2 A = 1 \]
-            \[ \left(\frac{3}{5}\right)^2 + \cos^2 A = 1 \]
-            \[ \cos^2 A = 1 - \frac{9}{25} = \frac{16}{25} \]
-            \[ \cos A = \pm \frac{4}{5} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Tentukan tanda yang benar</h4>
-          <p>Karena A di Kuadran II, cosinus bernilai <strong>negatif</strong>.</p>
-          <div class="math-scroll">
-            \[ \cos A = -\frac{4}{5} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <div class="step-content">
-          <h4>Hitung tangen</h4>
-          <div class="math-scroll">
-            \[ \tan A = \frac{\sin A}{\cos A} = \frac{\frac{3}{5}}{-\frac{4}{5}} = -\frac{3}{4} \]
-          </div>
-        </div>
-      </div>
+      <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Bentuk segitiga bantu</h4><p>Sin = depan/miring, jadi depan = 4 dan miring = 5.</p><div class="math-scroll">\[\text{samping}=\sqrt{5^2-4^2}=\sqrt9=3\]</div></div></div>
+      <div class="step-card"><div class="step-number">2</div><div class="step-content"><h4>Tentukan tanda kuadran II</h4><p>Di kuadran II, cos negatif dan tan negatif.</p><div class="math-scroll">\[\cos A=-\frac35,\quad \tan A=-\frac43\]</div></div></div>
     </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, cos A = \( -\frac{4}{5} \) dan tan A = \( -\frac{3}{4} \).
-    </div>
-  </div>
-
-  <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> F. Contoh Soal 2</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Tentukan nilai dari sin 150°!</p>
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Tentukan kuadran dan sudut acuan</h4>
-          <p>150° terletak di Kuadran II. Sudut acuan = \( 180^{\circ} - 150^{\circ} = 30^{\circ} \).</p>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Gunakan rumus sudut berelasi</h4>
-          <div class="math-scroll">
-            \[ \sin 150^{\circ} = \sin (180^{\circ} - 30^{\circ}) = \sin 30^{\circ} = \frac{1}{2} \]
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, sin 150° = \( \frac{1}{2} \).
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-exclamation-triangle card-icon"></i> G. Kesalahan Umum</div>
-      <div class="card-body">
-        <ul>
-          <li>Salah menentukan kuadran (misalnya mengira 200° di Kuadran II, padahal di III).</li>
-          <li>Salah menentukan tanda: di Kuadran II cosinus harus negatif.</li>
-          <li>Salah menghitung sudut acuan: Kuadran II = 180° − sudut; Kuadran III = sudut − 180°.</li>
-          <li>Lupa bahwa tangen positif di Kuadran III.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-bolt card-icon"></i> H. Tips Cepat</div>
-      <div class="card-body">
-        <ul>
-          <li>Hafalkan urutan kuadran: I (kanan atas), II (kiri atas), III (kiri bawah), IV (kanan bawah).</li>
-          <li>Gunakan mnemonic <strong>ALL SIN TAN COS</strong>.</li>
-          <li>Untuk sudut > 90°, kurangi dengan 180° atau 360° untuk mendapatkan sudut acuan.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal" style="background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-color: var(--primary);">
-    <div class="card-title"><i class="fas fa-bullseye card-icon" style="background: var(--primary); color: white;"></i> I. Inti Materi</div>
-    <div class="card-body">
-      <p>Nilai trigonometri untuk sudut besar dapat ditentukan dengan mengubahnya menjadi sudut berelasi dan menambahkan tanda sesuai kuadran:</p>
-      <div class="math-scroll">
-        \[ \text{Kuadran I: semua positif} \\ \text{Kuadran II: sin positif} \\ \text{Kuadran III: tan positif} \\ \text{Kuadran IV: cos positif} \]
-      </div>
-    </div>
+    <div class="answer-box"><i class="fas fa-check-circle"></i> Jadi, \(\cos A=-\frac35\) dan \(\tan A=-\frac43\).</div>
   </div>
 </section>
 
-<!-- Bab 4 -->
-<section id="bab4" class="section">
+<section id="aturan-sinus" class="section">
   <div class="section-header reveal">
-    <span class="section-tag">Bab 4</span>
+    <span class="section-tag"><i class="fas fa-wave-square"></i> Aturan Sinus</span>
     <h2>Aturan Sinus</h2>
-    <p class="section-desc">Menghitung sisi dan sudut pada segitiga sembarang menggunakan perbandingan dengan sinus.</p>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-shapes card-icon"></i> A. Pengertian Dasar</div>
-    <div class="card-body">
-      <p>Aturan Sinus adalah rumus yang menghubungkan panjang sisi-sisi segitiga dengan <strong>sinus sudut-sudut yang berhadapan</strong>. Sangat berguna untuk segitiga sembarang yang tidak memiliki sudut siku-siku.</p>
-      <p>Contoh aplikasi: berlayar di laut dan melihat dua mercusuar. Jika diketahui jarak antar mercusuar dan sudut pandang, Aturan Sinus bisa menghitung jarakmu dari masing-masing mercusuar.</p>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-brain card-icon"></i> B. Konsep Penting</div>
-    <div class="card-body">
-      <ul>
-        <li>Berlaku untuk <strong>segitiga sembarang</strong>.</li>
-        <li>Perbandingan panjang sisi dengan sinus sudut yang berhadapan adalah <strong>konstan</strong>.</li>
-        <li>Gunakan jika diketahui: dua sudut dan satu sisi (AAS/ASA), atau dua sisi dan sudut yang berhadapan dengan salah satu sisi (SSA).</li>
-        <li>Notasi: sisi \( a \) berhadapan dengan sudut \( A \), dst.</li>
-      </ul>
-    </div>
+    <p class="section-desc">Dipakai pada segitiga sembarang, terutama saat ada pasangan sisi dan sudut yang saling berhadapan.</p>
   </div>
 
   <div class="card formula-card reveal">
-    <div class="card-title"><i class="fas fa-square-root-alt card-icon"></i> C. Rumus Utama</div>
+    <div class="card-title"><i class="fas fa-equals card-icon"></i> Rumus Aturan Sinus</div>
     <div class="card-body">
-      <div class="math-scroll">
-        \[ \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} \]
-      </div>
-      <p class="mt-4">Bentuk terbalik:</p>
-      <div class="math-scroll">
-        \[ \frac{\sin A}{a} = \frac{\sin B}{b} = \frac{\sin C}{c} \]
-      </div>
-      <p class="mt-4">Rumus turunan:</p>
-      <div class="math-scroll">
-        \[ a = \frac{b \cdot \sin A}{\sin B} \]
-        \[ \sin A = \frac{a \cdot \sin B}{b} \]
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-lightbulb card-icon"></i> D. Cara Memahami Rumus</div>
-    <div class="card-body">
-      <p>Bayangkan segitiga ABC dengan tinggi dari titik C ke sisi \( c \). Tinggi dapat dinyatakan dalam dua cara:</p>
-      <div class="math-scroll">
-        \[ t = b \cdot \sin A \quad \text{dan} \quad t = a \cdot \sin B \]
-      </div>
-      <p>Karena tinggi yang sama:</p>
-      <div class="math-scroll">
-        \[ b \cdot \sin A = a \cdot \sin B \quad \Rightarrow \quad \frac{b}{\sin B} = \frac{a}{\sin A} \]
-      </div>
-      <p><strong>Kapan menggunakan Aturan Sinus?</strong></p>
-      <ul>
-        <li>Diketahui dua sudut dan satu sisi (AAS atau ASA).</li>
-        <li>Diketahui dua sisi dan sudut yang berhadapan dengan salah satu sisi (SSA).</li>
-        <li>Untuk SSS atau SAS, gunakan <strong>Aturan Cosinus</strong>.</li>
-      </ul>
+      <div class="math-scroll">\[\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}\]</div>
+      <p>Huruf kecil \(a,b,c\) adalah sisi. Huruf besar \(A,B,C\) adalah sudut di depan sisi tersebut.</p>
+      <div class="notice"><i class="fas fa-lightbulb"></i><p><strong>Gunakan aturan sinus</strong> kalau kamu melihat pasangan lengkap seperti sisi \(a\) dan sudut \(A\), lalu ingin mencari sisi atau sudut lain.</p></div>
     </div>
   </div>
 
   <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> E. Contoh Soal 1</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Pada segitiga ABC, diketahui AC = 12 cm, sudut A = 60°, dan sudut B = 45°. Tentukan panjang BC!</p>
-    <div class="example-meta">
-      <div class="meta-box"><strong>Diketahui</strong><span>b = AC = 12 cm, ∠A = 60°, ∠B = 45°</span></div>
-      <div class="meta-box"><strong>Ditanya</strong><span>Panjang BC = a</span></div>
-    </div>
+    <div class="example-header"><i class="fas fa-calculator"></i> Contoh — Mencari Panjang Sisi</div>
+    <p style="color:var(--muted); margin-bottom:14px">Dalam segitiga ABC, diketahui \(A=30^\circ\), \(B=45^\circ\), dan sisi \(a=10\) cm. Tentukan sisi \(b\).</p>
     <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Pilih rumus Aturan Sinus</h4>
-          <div class="math-scroll">
-            \[ \frac{a}{\sin A} = \frac{b}{\sin B} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Substitusikan nilai</h4>
-          <div class="math-scroll">
-            \[ a = \frac{12 \cdot \sin 60^{\circ}}{\sin 45^{\circ}} = \frac{12 \cdot \frac{\sqrt{3}}{2}}{\frac{\sqrt{2}}{2}} = \frac{6\sqrt{3}}{\frac{\sqrt{2}}{2}} = 6\sqrt{6} \text{ cm} \]
-          </div>
-        </div>
-      </div>
+      <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Pakai pasangan \(a\) dan A</h4><div class="math-scroll">\[\frac{a}{\sin A}=\frac{b}{\sin B}\]</div></div></div>
+      <div class="step-card"><div class="step-number">2</div><div class="step-content"><h4>Substitusi nilai</h4><div class="math-scroll">\[\frac{10}{\sin30^\circ}=\frac{b}{\sin45^\circ}\]</div></div></div>
+      <div class="step-card"><div class="step-number">3</div><div class="step-content"><h4>Hitung</h4><div class="math-scroll">\[\frac{10}{\frac12}=\frac{b}{\frac{\sqrt2}{2}}\Rightarrow20=\frac{2b}{\sqrt2}\Rightarrow b=10\sqrt2\]</div></div></div>
     </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, panjang BC adalah \( 6\sqrt{6} \) cm (sekitar 14,7 cm).
-    </div>
-  </div>
-
-  <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> F. Contoh Soal 2</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Diketahui segitiga PQR dengan sisi p = 16 cm, r = 8√2 cm, dan sudut R = 30°. Tentukan besar sudut P!</p>
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Gunakan Aturan Sinus</h4>
-          <div class="math-scroll">
-            \[ \frac{p}{\sin P} = \frac{r}{\sin R} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Substitusikan dan selesaikan</h4>
-          <div class="math-scroll">
-            \[ \frac{16}{\sin P} = \frac{8\sqrt{2}}{\sin 30^{\circ}} = \frac{8\sqrt{2}}{\frac{1}{2}} = 16\sqrt{2} \]
-            \[ \sin P = \frac{16}{16\sqrt{2}} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <div class="step-content">
-          <h4>Tentukan sudut P</h4>
-          <div class="math-scroll">
-            \[ \sin P = \frac{\sqrt{2}}{2} \Rightarrow P = 45^{\circ} \text{ atau } P = 135^{\circ} \]
-          </div>
-          <p>(Perlu diperhatikan apakah kedua jawaban mungkin berdasarkan konteks soal).</p>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, besar sudut P adalah 45° atau 135°.
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-exclamation-triangle card-icon"></i> G. Kesalahan Umum</div>
-      <div class="card-body">
-        <ul>
-          <li>Salah menentukan sisi yang berhadapan dengan sudut.</li>
-          <li>Lupa bahwa jumlah sudut dalam segitiga adalah 180°.</li>
-          <li>Menggunakan Aturan Sinus untuk kasus SSS atau SAS (harusnya Aturan Cosinus).</li>
-          <li>Tidak memeriksa ambiguitas dua kemungkinan jawaban (SSA).</li>
-        </ul>
-      </div>
-    </div>
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-bolt card-icon"></i> H. Tips Cepat</div>
-      <div class="card-body">
-        <ul>
-          <li>Hafalkan: sisi dibagi sinus sudut berhadapan = konstan.</li>
-          <li>Gambar segitiga dan beri label A, B, C pada sudut dan a, b, c pada sisi berhadapan.</li>
-          <li>Jika diketahui dua sudut, hitung sudut ketiga terlebih dahulu.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal" style="background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-color: var(--primary);">
-    <div class="card-title"><i class="fas fa-bullseye card-icon" style="background: var(--primary); color: white;"></i> I. Inti Materi</div>
-    <div class="card-body">
-      <p>Aturan Sinus menyatakan bahwa dalam segitiga sembarang, perbandingan panjang sisi dengan sinus sudut yang berhadapan adalah konstan:</p>
-      <div class="math-scroll">
-        \[ \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} \]
-      </div>
-      <p>Gunakan untuk kasus AAS, ASA, atau SSA.</p>
-    </div>
+    <div class="answer-box"><i class="fas fa-check-circle"></i> Jadi, panjang sisi \(b=10\sqrt2\) cm.</div>
   </div>
 </section>
 
-<!-- Bab 5 -->
-<section id="bab5" class="section">
+<section id="aturan-cosinus" class="section">
   <div class="section-header reveal">
-    <span class="section-tag">Bab 5</span>
+    <span class="section-tag"><i class="fas fa-ruler-combined"></i> Aturan Cosinus</span>
     <h2>Aturan Cosinus</h2>
-    <p class="section-desc">Perluasan Teorema Pythagoras untuk segitiga sembarang menggunakan cosinus.</p>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-shapes card-icon"></i> A. Pengertian Dasar</div>
-    <div class="card-body">
-      <p>Aturan Cosinus menghubungkan panjang sisi-sisi segitiga dengan <strong>cosinus salah satu sudutnya</strong>. Ini adalah perluasan Teorema Pythagoras untuk segitiga sembarang.</p>
-      <p>Contoh aplikasi: membuat pagar segitiga. Jika kamu memiliki dua batang kayu dengan panjang tertentu dan ingin memasangnya dengan sudut tertentu, Aturan Cosinus menghitung panjang batang ketiga.</p>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-brain card-icon"></i> B. Konsep Penting</div>
-    <div class="card-body">
-      <ul>
-        <li>Berlaku untuk <strong>segitiga sembarang</strong>.</li>
-        <li>Mirip Teorema Pythagoras dengan tambahan suku \( -2bc \cos A \).</li>
-        <li>Jika sudut A = 90°, maka \( \cos 90^{\circ} = 0 \), sehingga menjadi \( a^2 = b^2 + c^2 \) (Teorema Pythagoras).</li>
-        <li>Gunakan jika diketahui: tiga sisi (SSS), atau dua sisi dan sudut di antara keduanya (SAS).</li>
-      </ul>
-    </div>
+    <p class="section-desc">Dipakai untuk mencari sisi atau sudut pada segitiga sembarang, terutama saat diketahui dua sisi dan sudut apit.</p>
   </div>
 
   <div class="card formula-card reveal">
-    <div class="card-title"><i class="fas fa-square-root-alt card-icon"></i> C. Rumus Utama</div>
+    <div class="card-title"><i class="fas fa-square-root-alt card-icon"></i> Rumus Aturan Cosinus</div>
     <div class="card-body">
-      <p><strong>Mencari sisi:</strong></p>
-      <div class="math-scroll">
-        \[ a^2 = b^2 + c^2 - 2bc \cos A \]
-        \[ b^2 = a^2 + c^2 - 2ac \cos B \]
-        \[ c^2 = a^2 + b^2 - 2ab \cos C \]
-      </div>
-      <p class="mt-4"><strong>Mencari sudut (jika tiga sisi diketahui):</strong></p>
-      <div class="math-scroll">
-        \[ \cos A = \frac{b^2 + c^2 - a^2}{2bc} \]
-        \[ \cos B = \frac{a^2 + c^2 - b^2}{2ac} \]
-        \[ \cos C = \frac{a^2 + b^2 - c^2}{2ab} \]
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-lightbulb card-icon"></i> D. Cara Memahami Rumus</div>
-    <div class="card-body">
-      <p>Teorema Pythagoras berlaku untuk segitiga siku-siku: \( a^2 = b^2 + c^2 \). Jika sudut A tidak 90°, kita perlu koreksi:</p>
-      <ul>
-        <li>Jika sudut A <strong>lancip</strong> (< 90°), cos A positif, sehingga \( a^2 \) lebih kecil dari \( b^2 + c^2 \).</li>
-        <li>Jika sudut A <strong>tumpul</strong> (> 90°), cos A negatif, sehingga \( a^2 \) lebih besar dari \( b^2 + c^2 \).</li>
-      </ul>
-      <p><strong>Analogi pintu:</strong> Semakin lebar pintu terbuka (sudut besar), ujung pintu semakin jauh dari engsel. Aturan Cosinus menghitung "jarak ujung pintu" berdasarkan "panjang pintu" dan "sudut bukaan".</p>
+      <div class="math-scroll">\[a^2=b^2+c^2-2bc\cos A\]</div>
+      <div class="math-scroll">\[b^2=a^2+c^2-2ac\cos B\]</div>
+      <div class="math-scroll">\[c^2=a^2+b^2-2ab\cos C\]</div>
+      <p>Rumus ini mirip Pythagoras, tetapi ada tambahan \(-2bc\cos A\) karena segitiganya tidak harus siku-siku.</p>
     </div>
   </div>
 
   <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> E. Contoh Soal 1</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Pada segitiga ABC, diketahui b = 5 cm, c = 7 cm, dan sudut A = 60°. Tentukan panjang sisi a!</p>
+    <div class="example-header"><i class="fas fa-calculator"></i> Contoh — Mencari Sisi Ketiga</div>
+    <p style="color:var(--muted); margin-bottom:14px">Diketahui dua sisi segitiga adalah 8 cm dan 10 cm, serta sudut apitnya \(60^\circ\). Tentukan sisi ketiga.</p>
     <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Pilih rumus Aturan Cosinus</h4>
-          <div class="math-scroll">
-            \[ a^2 = b^2 + c^2 - 2bc \cos A \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Substitusikan nilai</h4>
-          <div class="math-scroll">
-            \[ a^2 = 5^2 + 7^2 - 2 \cdot 5 \cdot 7 \cdot \cos 60^{\circ} \]
-            \[ a^2 = 25 + 49 - 70 \cdot \frac{1}{2} = 74 - 35 = 39 \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <div class="step-content">
-          <h4>Hitung a</h4>
-          <div class="math-scroll">
-            \[ a = \sqrt{39} \approx 6{,}24 \text{ cm} \]
-          </div>
-        </div>
-      </div>
+      <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Gunakan aturan cosinus</h4><div class="math-scroll">\[c^2=a^2+b^2-2ab\cos C\]</div></div></div>
+      <div class="step-card"><div class="step-number">2</div><div class="step-content"><h4>Substitusi</h4><div class="math-scroll">\[c^2=8^2+10^2-2(8)(10)\cos60^\circ\]</div></div></div>
+      <div class="step-card"><div class="step-number">3</div><div class="step-content"><h4>Hitung</h4><div class="math-scroll">\[c^2=64+100-160\left(\frac12\right)=84\Rightarrow c=\sqrt{84}=2\sqrt{21}\]</div></div></div>
     </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, panjang sisi a adalah \( \sqrt{39} \) cm atau sekitar 6,24 cm.
-    </div>
-  </div>
-
-  <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> F. Contoh Soal 2</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Pada segitiga ABC, diketahui a = 7 cm, b = 8 cm, dan c = 5 cm. Tentukan besar sudut B!</p>
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Gunakan rumus cosinus untuk sudut</h4>
-          <div class="math-scroll">
-            \[ \cos B = \frac{a^2 + c^2 - b^2}{2ac} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Substitusikan nilai</h4>
-          <div class="math-scroll">
-            \[ \cos B = \frac{7^2 + 5^2 - 8^2}{2 \cdot 7 \cdot 5} = \frac{49 + 25 - 64}{70} = \frac{10}{70} = \frac{1}{7} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <div class="step-content">
-          <h4>Hitung sudut B</h4>
-          <div class="math-scroll">
-            \[ B = \arccos \left(\frac{1}{7}\right) \approx 81{,}79^{\circ} \]
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, besar sudut B adalah sekitar 81,79°.
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-exclamation-triangle card-icon"></i> G. Kesalahan Umum</div>
-      <div class="card-body">
-        <ul>
-          <li>Salah memasukkan sudut ke rumus. Pastikan sudut yang dimasukkan adalah sudut <strong>di antara</strong> dua sisi yang diketahui.</li>
-          <li>Lupa bahwa cosinus sudut tumpul bernilai negatif.</li>
-          <li>Menggunakan Aturan Cosinus untuk kasus AAS (harusnya Aturan Sinus).</li>
-        </ul>
-      </div>
-    </div>
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-bolt card-icon"></i> H. Tips Cepat</div>
-      <div class="card-body">
-        <ul>
-          <li>Hafalkan pola: \( a^2 = b^2 + c^2 - 2bc \cos A \). Seperti Pythagoras dengan koreksi.</li>
-          <li>Jika sudut 90°, cos 90° = 0, rumus menjadi Pythagoras murni.</li>
-          <li>Selalu periksa apakah jawaban masuk akal.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal" style="background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-color: var(--primary);">
-    <div class="card-title"><i class="fas fa-bullseye card-icon" style="background: var(--primary); color: white;"></i> I. Inti Materi</div>
-    <div class="card-body">
-      <p>Aturan Cosinus menghubungkan tiga sisi segitiga dengan salah satu sudutnya:</p>
-      <div class="math-scroll">
-        \[ a^2 = b^2 + c^2 - 2bc \cos A \]
-      </div>
-      <p>Gunakan untuk kasus SAS (dua sisi, sudut di antara) atau SSS (tiga sisi).</p>
-    </div>
+    <div class="answer-box"><i class="fas fa-check-circle"></i> Jadi, sisi ketiga adalah \(2\sqrt{21}\) cm.</div>
   </div>
 </section>
 
-<!-- Bab 6 -->
-<section id="bab6" class="section">
+<section id="luas" class="section">
   <div class="section-header reveal">
-    <span class="section-tag">Bab 6</span>
+    <span class="section-tag"><i class="fas fa-chart-area"></i> Luas</span>
     <h2>Luas Segitiga dalam Trigonometri</h2>
-    <p class="section-desc">Menghitung luas segitiga dari berbagai informasi yang diketahui menggunakan trigonometri dan rumus Heron.</p>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-shapes card-icon"></i> A. Pengertian Dasar</div>
-    <div class="card-body">
-      <p>Luas segitiga tidak hanya bisa dihitung dengan rumus dasar \( \frac{1}{2} \times \text{alas} \times \text{tinggi} \), tapi juga bisa dihitung jika kita mengetahui <strong>dua sisi dan sudut di antara keduanya</strong> (SAS).</p>
-      <p>Contoh: kamu memiliki sebidang tanah berbentuk segitiga. Sudah mengukur dua sisi dan sudut di antaranya. Dengan rumus trigonometri, kamu bisa menghitung luas tanah tanpa mencari tinggi terlebih dahulu.</p>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-brain card-icon"></i> B. Konsep Penting</div>
-    <div class="card-body">
-      <ul>
-        <li>Rumus luas trigonometri memungkinkan perhitungan luas jika diketahui dua sisi dan sudut di antara keduanya (SAS).</li>
-        <li>Jika diketahui tiga sisi (SSS), gunakan <strong>rumus Heron</strong>.</li>
-        <li>Rumus Heron: \( L = \sqrt{s(s-a)(s-b)(s-c)} \), dengan \( s = \frac{1}{2}(a+b+c) \).</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card formula-card reveal">
-    <div class="card-title"><i class="fas fa-square-root-alt card-icon"></i> C. Rumus Utama</div>
-    <div class="card-body">
-      <p><strong>Rumus Luas Trigonometri (SAS):</strong></p>
-      <div class="math-scroll">
-        \[ L = \frac{1}{2} \cdot a \cdot b \cdot \sin C \]
-        \[ L = \frac{1}{2} \cdot b \cdot c \cdot \sin A \]
-        \[ L = \frac{1}{2} \cdot a \cdot c \cdot \sin B \]
-      </div>
-      <p class="mt-4"><strong>Rumus Heron (SSS):</strong></p>
-      <div class="math-scroll">
-        \[ L = \sqrt{s(s-a)(s-b)(s-c)} \]
-        \[ s = \frac{a + b + c}{2} \]
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-lightbulb card-icon"></i> D. Cara Memahami Rumus</div>
-    <div class="card-body">
-      <p>Dari rumus dasar luas segitiga \( L = \frac{1}{2} \times \text{alas} \times \text{tinggi} \). Misalkan sisi \( a \) sebagai alas, maka tinggi dari titik C adalah:</p>
-      <div class="math-scroll">
-        \[ t = b \cdot \sin C \]
-      </div>
-      <p>Sehingga:</p>
-      <div class="math-scroll">
-        \[ L = \frac{1}{2} \cdot a \cdot b \cdot \sin C \]
-      </div>
-      <p><strong>Analogi payung:</strong> Semakin lebar payung terbuka (sudut besar), semakin besar area yang dilindungi. Sinus sudut mencerminkan "seberapa lebar payung terbuka".</p>
-    </div>
-  </div>
-
-  <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> E. Contoh Soal 1</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Pada segitiga ABC, diketahui a = 8 cm, b = 10 cm, dan sudut C = 30°. Tentukan luas segitiga tersebut!</p>
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Pilih rumus luas segitiga trigonometri</h4>
-          <div class="math-scroll">
-            \[ L = \frac{1}{2} \cdot a \cdot b \cdot \sin C \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Substitusikan nilai</h4>
-          <div class="math-scroll">
-            \[ L = \frac{1}{2} \cdot 8 \cdot 10 \cdot \sin 30^{\circ} = \frac{1}{2} \cdot 8 \cdot 10 \cdot \frac{1}{2} = 20 \text{ cm}^2 \]
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, luas segitiga ABC adalah 20 cm².
-    </div>
-  </div>
-
-  <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> F. Contoh Soal 2 (Rumus Heron)</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Pada segitiga PQR, diketahui p = 7 cm, q = 8 cm, dan r = 9 cm. Tentukan luas segitiga menggunakan rumus Heron!</p>
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Hitung nilai s (semi-perimeter)</h4>
-          <div class="math-scroll">
-            \[ s = \frac{7 + 8 + 9}{2} = \frac{24}{2} = 12 \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Gunakan rumus Heron</h4>
-          <div class="math-scroll">
-            \[ L = \sqrt{12(12-7)(12-8)(12-9)} = \sqrt{12 \cdot 5 \cdot 4 \cdot 3} = \sqrt{720} = 12\sqrt{5} \text{ cm}^2 \]
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, luas segitiga PQR adalah \( 12\sqrt{5} \) cm² (sekitar 26,83 cm²).
-    </div>
+    <p class="section-desc">Luas segitiga bisa dihitung dengan trigonometri jika diketahui dua sisi dan sudut apit.</p>
   </div>
 
   <div class="grid-2">
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-exclamation-triangle card-icon"></i> G. Kesalahan Umum</div>
+    <div class="card formula-card reveal">
+      <div class="card-title"><i class="fas fa-draw-polygon card-icon"></i> Luas dengan Sudut Apit</div>
       <div class="card-body">
-        <ul>
-          <li>Salah memilih sudut. Pastikan sudut yang digunakan adalah sudut <strong>di antara</strong> dua sisi.</li>
-          <li>Lupa bahwa sin 30° = 1/2, bukan \( \frac{\sqrt{3}}{2} \).</li>
-          <li>Dalam rumus Heron, salah menghitung s. Ingat: \( s = \frac{a+b+c}{2} \).</li>
-          <li>Tidak menyederhanakan akar. Misalnya, \( \sqrt{720} = 12\sqrt{5} \).</li>
-        </ul>
+        <div class="math-scroll">\[L=\frac12 ab\sin C\]</div>
+        <div class="math-scroll">\[L=\frac12 bc\sin A\]</div>
+        <div class="math-scroll">\[L=\frac12 ac\sin B\]</div>
+        <p>Pilih rumus sesuai dua sisi dan sudut yang diketahui.</p>
       </div>
     </div>
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-bolt card-icon"></i> H. Tips Cepat</div>
+    <div class="card formula-card reveal">
+      <div class="card-title"><i class="fas fa-compass card-icon"></i> Rumus Heron</div>
       <div class="card-body">
-        <ul>
-          <li>Hafalkan: \( L = \frac{1}{2} ab \sin C \).</li>
-          <li>Jika diketahui dua sisi dan sudut di antara, langsung gunakan rumus trigonometri.</li>
-          <li>Jika diketahui tiga sisi, gunakan rumus Heron.</li>
-        </ul>
+        <p>Jika tiga sisi diketahui, gunakan:</p>
+        <div class="math-scroll">\[s=\frac{a+b+c}{2}\]</div>
+        <div class="math-scroll">\[L=\sqrt{s(s-a)(s-b)(s-c)}\]</div>
       </div>
     </div>
   </div>
 
-  <div class="card reveal" style="background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-color: var(--primary);">
-    <div class="card-title"><i class="fas fa-bullseye card-icon" style="background: var(--primary); color: white;"></i> I. Inti Materi</div>
-    <div class="card-body">
-      <p>Luas segitiga dapat dihitung dengan trigonometri jika diketahui dua sisi dan sudut di antara keduanya:</p>
-      <div class="math-scroll">
-        \[ L = \frac{1}{2} \cdot a \cdot b \cdot \sin C \]
-      </div>
-      <p>Jika diketahui tiga sisi, gunakan rumus Heron:</p>
-      <div class="math-scroll">
-        \[ L = \sqrt{s(s-a)(s-b)(s-c)} \]
-      </div>
+  <div class="card example-card reveal">
+    <div class="example-header"><i class="fas fa-calculator"></i> Contoh — Luas dengan Sudut Apit</div>
+    <p style="color:var(--muted); margin-bottom:14px">Diketahui sisi \(a=10\) cm, sisi \(b=12\) cm, dan sudut apit \(C=30^\circ\). Tentukan luas segitiga.</p>
+    <div class="steps">
+      <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Pakai rumus luas trigonometri</h4><div class="math-scroll">\[L=\frac12 ab\sin C\]</div></div></div>
+      <div class="step-card"><div class="step-number">2</div><div class="step-content"><h4>Substitusi</h4><div class="math-scroll">\[L=\frac12(10)(12)\sin30^\circ\]</div></div></div>
+      <div class="step-card"><div class="step-number">3</div><div class="step-content"><h4>Hitung</h4><div class="math-scroll">\[L=60\times\frac12=30\text{ cm}^2\]</div></div></div>
     </div>
+    <div class="answer-box"><i class="fas fa-check-circle"></i> Jadi, luas segitiga adalah \(30\text{ cm}^2\).</div>
   </div>
 </section>
 
-<!-- Bab 7 -->
-<section id="bab7" class="section">
+<section id="koordinat" class="section">
   <div class="section-header reveal">
-    <span class="section-tag">Bab 7</span>
-    <h2>Konversi Koordinat Cartesius ke Koordinat Kutub (Polar)</h2>
-    <p class="section-desc">Memahami dua sistem koordinat dan cara konversinya menggunakan trigonometri.</p>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-shapes card-icon"></i> A. Pengertian Dasar</div>
-    <div class="card-body">
-      <p>Terdapat dua sistem koordinat umum:</p>
-      <ul>
-        <li><strong>Koordinat Cartesius P(x, y):</strong> jarak horizontal (x) dan vertikal (y) dari titik asal.</li>
-        <li><strong>Koordinat Kutub P(r, θ):</strong> jarak dari titik asal (r) dan sudut arah dari sumbu x positif (θ).</li>
-      </ul>
-      <p><strong>Analogi memberi arah:</strong> "Jalan 3 meter ke timur, lalu 4 meter ke utara" (Cartesius) vs "Berjalanlah 5 meter dengan arah 53,13° dari timur" (Kutub).</p>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-brain card-icon"></i> B. Konsep Penting</div>
-    <div class="card-body">
-      <ul>
-        <li>Hubungan didasarkan pada segitiga siku-siku yang dibentuk oleh titik P, titik asal O, dan proyeksi P pada sumbu x.</li>
-        <li>Nilai \( r \) selalu positif (\( r \geq 0 \)).</li>
-        <li>Tanda x dan y menentukan kuadran, yang mempengaruhi nilai \( \theta \).</li>
-      </ul>
-      <div class="diagram-box decorative">
-        <div class="quadrant-wrap">
-          <div class="quadrant-axis-x"></div>
-          <div class="quadrant-axis-y"></div>
-          <div class="quadrant-area q1">I<br><small>x>0, y>0</small></div>
-          <div class="quadrant-area q2">II<br><small>x<0, y>0</small></div>
-          <div class="quadrant-area q3">III<br><small>x<0, y<0</small></div>
-          <div class="quadrant-area q4">IV<br><small>x>0, y<0</small></div>
-          <span class="quadrant-label-pos" style="top: 50%; left: 50%; transform: translate(-50%,-50%); background: var(--primary); color: white;">O</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card formula-card reveal">
-    <div class="card-title"><i class="fas fa-square-root-alt card-icon"></i> C. Rumus Utama</div>
-    <div class="card-body">
-      <p><strong>Kutub ke Cartesius:</strong></p>
-      <div class="math-scroll">
-        \[ x = r \cdot \cos \theta \]
-        \[ y = r \cdot \sin \theta \]
-      </div>
-      <p class="mt-4"><strong>Cartesius ke Kutub:</strong></p>
-      <div class="math-scroll">
-        \[ r = \sqrt{x^2 + y^2} \]
-        \[ \tan \theta = \frac{y}{x} \]
-      </div>
-      <p class="mt-4"><strong>Menentukan θ berdasarkan kuadran:</strong></p>
-      <ul>
-        <li>Kuadran I (x > 0, y > 0): \( \theta = \arctan(\frac{y}{x}) \)</li>
-        <li>Kuadran II (x < 0, y > 0): \( \theta = 180^{\circ} - \arctan(|\frac{y}{x}|) \)</li>
-        <li>Kuadran III (x < 0, y < 0): \( \theta = 180^{\circ} + \arctan(|\frac{y}{x}|) \)</li>
-        <li>Kuadran IV (x > 0, y < 0): \( \theta = 360^{\circ} - \arctan(|\frac{y}{x}|) \)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-lightbulb card-icon"></i> D. Cara Memahami Rumus</div>
-    <div class="card-body">
-      <p>Misalkan titik P(x, y). Tarik garis dari titik asal O ke titik P:</p>
-      <ul>
-        <li>Garis OP = sisi miring dengan panjang r.</li>
-        <li>Proyeksi pada sumbu x = sisi samping dengan panjang x.</li>
-        <li>Proyeksi pada sumbu y = sisi depan dengan panjang y.</li>
-      </ul>
-      <div class="math-scroll">
-        \[ \cos \theta = \frac{x}{r} \Rightarrow x = r \cos \theta \]
-        \[ \sin \theta = \frac{y}{r} \Rightarrow y = r \sin \theta \]
-        \[ r = \sqrt{x^2 + y^2} \text{ (Teorema Pythagoras)} \]
-      </div>
-    </div>
-  </div>
-
-  <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> E. Contoh Soal 1</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Diketahui koordinat Cartesius titik P(4, 4). Tentukan koordinat kutub titik P!</p>
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Hitung r</h4>
-          <div class="math-scroll">
-            \[ r = \sqrt{4^2 + 4^2} = \sqrt{32} = 4\sqrt{2} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Hitung θ</h4>
-          <div class="math-scroll">
-            \[ \tan \theta = \frac{4}{4} = 1 \Rightarrow \theta = 45^{\circ} \]
-          </div>
-          <p>Karena x > 0 dan y > 0, titik di Kuadran I. Sudut 45° sudah benar.</p>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, koordinat kutub titik P adalah \( (4\sqrt{2}, 45^{\circ}) \).
-    </div>
-  </div>
-
-  <div class="card example-card reveal">
-    <div class="example-header"><i class="fas fa-calculator"></i> F. Contoh Soal 2</div>
-    <p style="margin-bottom: 16px; color: var(--muted);">Diketahui koordinat Cartesius titik A(-1, -1). Tentukan koordinat polar titik A!</p>
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h4>Hitung r</h4>
-          <div class="math-scroll">
-            \[ r = \sqrt{(-1)^2 + (-1)^2} = \sqrt{2} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h4>Hitung sudut acuan</h4>
-          <div class="math-scroll">
-            \[ \tan \theta_{acuan} = \left|\frac{-1}{-1}\right| = 1 \Rightarrow \theta_{acuan} = 45^{\circ} \]
-          </div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <div class="step-content">
-          <h4>Tentukan kuadran dan θ sebenarnya</h4>
-          <p>Karena x < 0 dan y < 0, titik A berada di Kuadran III.</p>
-          <div class="math-scroll">
-            \[ \theta = 180^{\circ} + 45^{\circ} = 225^{\circ} \]
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 24px; padding: 18px; background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-radius: 14px; border: 1px solid var(--border); color: var(--primary-dark); font-weight: 700;">
-      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Jadi, koordinat polar titik A adalah \( (\sqrt{2}, 225^{\circ}) \).
-    </div>
+    <span class="section-tag"><i class="fas fa-location-dot"></i> Koordinat</span>
+    <h2>Konversi Koordinat Cartesius dan Kutub</h2>
+    <p class="section-desc">Koordinat Cartesius ditulis \((x,y)\), sedangkan koordinat kutub/polar ditulis \((r,\alpha)\).</p>
   </div>
 
   <div class="grid-2">
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-exclamation-triangle card-icon"></i> G. Kesalahan Umum</div>
+    <div class="card formula-card reveal">
+      <div class="card-title"><i class="fas fa-arrow-right card-icon"></i> Kutub ke Cartesius</div>
       <div class="card-body">
-        <ul>
-          <li>Lupa memeriksa kuadran. Hasil arctan(y/x) selalu antara -90° dan 90°.</li>
-          <li>Salah menghitung r. Ingat: \( r = \sqrt{x^2 + y^2} \), bukan x + y.</li>
-          <li>Menggunakan rumus \( \theta = \arctan(\frac{y}{x}) \) tanpa memperhatikan tanda x.</li>
-        </ul>
+        <p>Diketahui \((r,\alpha)\), cari \((x,y)\):</p>
+        <div class="math-scroll">\[x=r\cos\alpha\]</div>
+        <div class="math-scroll">\[y=r\sin\alpha\]</div>
       </div>
     </div>
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-bolt card-icon"></i> H. Tips Cepat</div>
+    <div class="card formula-card reveal">
+      <div class="card-title"><i class="fas fa-arrow-left card-icon"></i> Cartesius ke Kutub</div>
       <div class="card-body">
-        <ul>
-          <li>Selalu gambar titik di bidang koordinat untuk menentukan kuadran.</li>
-          <li>Hafalkan: \( r = \sqrt{x^2 + y^2} \) dan \( \tan \theta = \frac{y}{x} \).</li>
-          <li>Kuadran I: θ = arctan(y/x). Kuadran II: 180° − arctan(|y/x|). Kuadran III: 180° + arctan(|y/x|). Kuadran IV: 360° − arctan(|y/x|).</li>
-        </ul>
+        <p>Diketahui \((x,y)\), cari \((r,\alpha)\):</p>
+        <div class="math-scroll">\[r=\sqrt{x^2+y^2}\]</div>
+        <div class="math-scroll">\[\tan\alpha=\frac{y}{x}\]</div>
+        <p>Setelah dapat sudut acuan, cek kuadrannya dari tanda \(x\) dan \(y\).</p>
       </div>
     </div>
   </div>
 
-  <div class="card reveal" style="background: linear-gradient(135deg, var(--primary-soft), #ffffff); border-color: var(--primary);">
-    <div class="card-title"><i class="fas fa-bullseye card-icon" style="background: var(--primary); color: white;"></i> I. Inti Materi</div>
-    <div class="card-body">
-      <p>Koordinat Cartesius P(x, y) ke koordinat kutub P(r, θ):</p>
-      <div class="math-scroll">
-        \[ r = \sqrt{x^2 + y^2} \quad \text{dan} \quad \tan \theta = \frac{y}{x} \]
-      </div>
-      <p>Koordinat kutub P(r, θ) ke koordinat Cartesius:</p>
-      <div class="math-scroll">
-        \[ x = r \cdot \cos \theta \quad \text{dan} \quad y = r \cdot \sin \theta \]
-      </div>
-      <p>Perhatikan kuadran titik untuk menentukan nilai θ yang benar.</p>
+  <div class="card example-card reveal">
+    <div class="example-header"><i class="fas fa-calculator"></i> Contoh — Cartesius ke Kutub</div>
+    <p style="color:var(--muted); margin-bottom:14px">Ubah titik \(P(4,4)\) menjadi koordinat kutub.</p>
+    <div class="steps">
+      <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Cari jarak r</h4><div class="math-scroll">\[r=\sqrt{4^2+4^2}=\sqrt{32}=4\sqrt2\]</div></div></div>
+      <div class="step-card"><div class="step-number">2</div><div class="step-content"><h4>Cari sudut</h4><div class="math-scroll">\[\tan\alpha=\frac{4}{4}=1\Rightarrow \alpha=45^\circ\]</div><p>Karena x dan y positif, titik berada di kuadran I.</p></div></div>
     </div>
+    <div class="answer-box"><i class="fas fa-check-circle"></i> Jadi, koordinat kutubnya adalah \((4\sqrt2,45^\circ)\).</div>
+  </div>
+
+  <div class="card example-card reveal">
+    <div class="example-header"><i class="fas fa-calculator"></i> Contoh — Kutub ke Cartesius</div>
+    <p style="color:var(--muted); margin-bottom:14px">Ubah titik \((2,60^\circ)\) menjadi koordinat Cartesius.</p>
+    <div class="steps">
+      <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Gunakan rumus x dan y</h4><div class="math-scroll">\[x=2\cos60^\circ=2\left(\frac12\right)=1\]</div><div class="math-scroll">\[y=2\sin60^\circ=2\left(\frac{\sqrt3}{2}\right)=\sqrt3\]</div></div></div>
+    </div>
+    <div class="answer-box"><i class="fas fa-check-circle"></i> Jadi, koordinat Cartesiusnya adalah \((1,\sqrt3)\).</div>
   </div>
 </section>
 
-
-<!-- Cara Mengerjakan Soal -->
-<section id="cara-soal" class="section">
+<section id="soal-cerita" class="section">
   <div class="section-header reveal">
-    <span class="section-tag">Cara Soal</span>
-    <h2>Cara Mengerjakan Soal Trigonometri dari Nol</h2>
-    <p class="section-desc">Bagian ini dibuat agar kamu tidak hanya hafal rumus, tetapi juga tahu harus mulai dari mana saat ketemu soal.</p>
+    <span class="section-tag"><i class="fas fa-ship"></i> Soal Cerita</span>
+    <h2>Model Soal Ulangan: Perahu, Tinggi, dan Sudut</h2>
+    <p class="section-desc">Soal cerita biasanya bukan sulit di hitungan, tapi sulit di mengubah cerita menjadi gambar dan rumus.</p>
+  </div>
+
+  <div class="card example-card reveal">
+    <div class="example-header"><i class="fas fa-ship"></i> Contoh 1 — Soal Cerita Perahu</div>
+    <p style="color:var(--muted); margin-bottom:14px">Dua perahu berangkat dari pelabuhan yang sama. Perahu A bergerak sejauh 12 km, perahu B bergerak sejauh 9 km. Arah keduanya membentuk sudut \(60^\circ\). Tentukan jarak kedua perahu.</p>
+    <div class="steps">
+      <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Ubah cerita menjadi segitiga</h4><p>Jarak dari pelabuhan ke perahu A = 12 km, ke perahu B = 9 km, sudut di pelabuhan = \(60^\circ\).</p></div></div>
+      <div class="step-card"><div class="step-number">2</div><div class="step-content"><h4>Pakai aturan cosinus</h4><div class="math-scroll">\[d^2=12^2+9^2-2(12)(9)\cos60^\circ\]</div></div></div>
+      <div class="step-card"><div class="step-number">3</div><div class="step-content"><h4>Hitung</h4><div class="math-scroll">\[d^2=144+81-216\left(\frac12\right)=117\]</div><div class="math-scroll">\[d=\sqrt{117}=3\sqrt{13}\approx10{,}82\text{ km}\]</div></div></div>
+    </div>
+    <div class="answer-box"><i class="fas fa-check-circle"></i> Jadi, jarak kedua perahu adalah \(3\sqrt{13}\) km atau sekitar 10,82 km.</div>
+  </div>
+
+  <div class="card example-card reveal">
+    <div class="example-header"><i class="fas fa-angle-up"></i> Contoh 2 — Menghitung Sudut</div>
+    <p style="color:var(--muted); margin-bottom:14px">Sebuah tangga panjangnya 5 m bersandar pada dinding. Kaki tangga berjarak 3 m dari dinding. Tentukan sudut tangga terhadap lantai.</p>
+    <div class="steps">
+      <div class="step-card"><div class="step-number">1</div><div class="step-content"><h4>Tentukan sisi terhadap sudut lantai</h4><p>Miring = 5 m, samping = 3 m. Maka gunakan cos.</p><div class="math-scroll">\[\cos\theta=\frac{\text{samping}}{\text{miring}}=\frac35\]</div></div></div>
+      <div class="step-card"><div class="step-number">2</div><div class="step-content"><h4>Cari sudut</h4><div class="math-scroll">\[\theta=\cos^{-1}\left(\frac35\right)\approx53{,}13^\circ\]</div></div></div>
+    </div>
+    <div class="answer-box"><i class="fas fa-check-circle"></i> Jadi, sudut tangga terhadap lantai sekitar \(53{,}13^\circ\).</div>
   </div>
 
   <div class="card reveal">
-    <div class="card-title"><i class="fas fa-list-check card-icon"></i> Pola Umum Mengerjakan Soal</div>
+    <div class="card-title"><i class="fas fa-list-check card-icon"></i> Checklist Saat Mengerjakan Soal Cerita</div>
     <div class="card-body">
-      <div class="study-steps">
-        <div class="study-step">
-          <strong>Baca soal dan cari kata kunci.</strong>
-          <p>Kata seperti tinggi, jarak, sudut elevasi, segitiga siku-siku, kuadran, atau koordinat biasanya memberi petunjuk rumus.</p>
-        </div>
-        <div class="study-step">
-          <strong>Gambar sketsa sederhana.</strong>
-          <p>Tidak harus bagus. Yang penting posisi sisi, sudut, dan arah kuadran terlihat jelas.</p>
-        </div>
-        <div class="study-step">
-          <strong>Labeli sisi dan sudut.</strong>
-          <p>Tulis sisi depan, samping, miring, atau sisi a, b, c sesuai jenis soalnya.</p>
-        </div>
-        <div class="study-step">
-          <strong>Pilih rumus yang paling langsung.</strong>
-          <p>Jangan memakai rumus yang terlalu panjang jika ada cara lebih sederhana.</p>
-        </div>
-        <div class="study-step">
-          <strong>Hitung perlahan dan sederhanakan.</strong>
-          <p>Untuk bentuk akar, cek apakah perlu dirasionalkan. Untuk sudut istimewa, gunakan tabel 30°, 45°, 60°.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-compass card-icon"></i> Jika Soalnya Tentang Kuadran</div>
-      <div class="card-body">
-        <ul>
-          <li>Tentukan dulu sudutnya berada di kuadran berapa.</li>
-          <li>Cari sudut acuannya, misalnya 150° berarti acuannya 30°.</li>
-          <li>Tentukan tanda positif atau negatif dengan aturan ALL SIN TAN COS.</li>
-          <li>Masukkan nilai sudut istimewanya.</li>
-        </ul>
-        <div class="math-scroll">
-          \[ \sin 150^{\circ} = \sin(180^{\circ}-30^{\circ}) = \sin 30^{\circ} = \frac{1}{2} \]
-        </div>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-title"><i class="fas fa-mountain card-icon"></i> Jika Soalnya Tentang Tinggi atau Jarak</div>
-      <div class="card-body">
-        <ul>
-          <li>Biasanya membentuk segitiga siku-siku.</li>
-          <li>Jarak mendatar biasanya sisi samping.</li>
-          <li>Tinggi yang dicari biasanya sisi depan.</li>
-          <li>Kalau depan dan samping terlibat, gunakan tangen.</li>
-        </ul>
-        <div class="math-scroll">
-          \[ \tan \alpha = \frac{\text{tinggi}}{\text{jarak}} \]
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-title"><i class="fas fa-brain card-icon"></i> Cara Mengecek Jawaban</div>
-    <div class="card-body">
-      <ul>
-        <li>Kalau segitiga siku-siku, sisi miring harus paling panjang.</li>
-        <li>Nilai \( \sin \) dan \( \cos \) untuk sudut lancip harus berada antara 0 dan 1.</li>
-        <li>Kalau di Kuadran II, cos dan tan harus negatif.</li>
-        <li>Kalau di Kuadran III, sin dan cos negatif, tetapi tan positif.</li>
-        <li>Kalau luas segitiga negatif, berarti ada kesalahan karena luas harus positif.</li>
-      </ul>
+      <ol class="checklist">
+        <li>Gambar titik awal, arah gerak, tinggi, jarak, atau garis pandang.</li>
+        <li>Tandai sudut yang diketahui.</li>
+        <li>Tentukan apa yang ditanya: sisi, sudut, luas, atau koordinat.</li>
+        <li>Pilih rumus sesuai bentuk gambar.</li>
+        <li>Periksa satuan akhir: cm, m, km, atau derajat.</li>
+      </ol>
     </div>
   </div>
 </section>
 
-<!-- Rangkuman -->
 <section id="rangkuman" class="section">
   <div class="section-header reveal">
-    <span class="section-tag">Rangkuman Akhir</span>
-    <h2>Daftar Rumus & Peta Konsep</h2>
-    <p class="section-desc">Ringkasan lengkap seluruh materi Trigonometri dalam modul ini.</p>
+    <span class="section-tag"><i class="fas fa-bookmark"></i> Rangkuman</span>
+    <h2>Rumus Penting yang Wajib Dihafal</h2>
+    <p class="section-desc">Bagian ini bisa dipakai untuk belajar cepat sebelum ujian.</p>
   </div>
 
   <div class="rangkuman-list">
-    <div class="rangkuman-item reveal">
-      <h4><i class="fas fa-shapes text-primary"></i> 1. Perbandingan Dasar</h4>
-      <div class="math-scroll">
-        \[ \sin \alpha = \frac{\text{depan}}{\text{miring}} = \frac{a}{c} \]
-        \[ \cos \alpha = \frac{\text{samping}}{\text{miring}} = \frac{b}{c} \]
-        \[ \tan \alpha = \frac{\text{depan}}{\text{samping}} = \frac{a}{b} \]
-      </div>
-    </div>
-    <div class="rangkuman-item reveal">
-      <h4><i class="fas fa-star text-primary"></i> 2. Sudut Istimewa</h4>
-      <div class="math-scroll">
-        \[ \begin{array}{c|c|c|c} \theta & 30^{\circ} & 45^{\circ} & 60^{\circ} \\ \hline \sin & \frac{1}{2} & \frac{\sqrt{2}}{2} & \frac{\sqrt{3}}{2} \\ \cos & \frac{\sqrt{3}}{2} & \frac{\sqrt{2}}{2} & \frac{1}{2} \\ \tan & \frac{\sqrt{3}}{3} & 1 & \sqrt{3} \end{array} \]
-      </div>
-    </div>
-    <div class="rangkuman-item reveal">
-      <h4><i class="fas fa-th-large text-primary"></i> 3. Sudut Berelasi</h4>
-      <div class="math-scroll">
-        \[ \sin(180^{\circ}-\alpha)=\sin\alpha \quad \cos(180^{\circ}-\alpha)=-\cos\alpha \]
-        \[ \sin(180^{\circ}+\alpha)=-\sin\alpha \quad \cos(180^{\circ}+\alpha)=-\cos\alpha \]
-        \[ \sin(360^{\circ}-\alpha)=-\sin\alpha \quad \cos(360^{\circ}-\alpha)=\cos\alpha \]
-      </div>
-    </div>
-    <div class="rangkuman-item reveal">
-      <h4><i class="fas fa-wave-square text-primary"></i> 4. Aturan Sinus</h4>
-      <div class="math-scroll">
-        \[ \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} \]
-      </div>
-    </div>
-    <div class="rangkuman-item reveal">
-      <h4><i class="fas fa-square text-primary"></i> 5. Aturan Cosinus</h4>
-      <div class="math-scroll">
-        \[ a^2 = b^2 + c^2 - 2bc \cos A \]
-        \[ \cos A = \frac{b^2 + c^2 - a^2}{2bc} \]
-      </div>
-    </div>
-    <div class="rangkuman-item reveal">
-      <h4><i class="fas fa-draw-polygon text-primary"></i> 6. Luas Segitiga</h4>
-      <div class="math-scroll">
-        \[ L = \frac{1}{2}ab\sin C \]
-        \[ L = \sqrt{s(s-a)(s-b)(s-c)} \]
-        \[ s = \frac{a+b+c}{2} \]
-      </div>
-    </div>
-    <div class="rangkuman-item reveal">
-      <h4><i class="fas fa-globe text-primary"></i> 7. Konversi Koordinat</h4>
-      <div class="math-scroll">
-        \[ r = \sqrt{x^2+y^2}, \quad \tan\theta = \frac{y}{x} \]
-        \[ x = r\cos\theta, \quad y = r\sin\theta \]
-      </div>
-    </div>
+    <div class="rangkuman-item reveal"><h4><i class="fas fa-right-angle"></i> Segitiga Siku-siku</h4><p>\(\sin=\frac{depan}{miring}\), \(\cos=\frac{samping}{miring}\), \(\tan=\frac{depan}{samping}\).</p></div>
+    <div class="rangkuman-item reveal"><h4><i class="fas fa-star"></i> Sudut Istimewa</h4><p>Sin naik: 0, \(\frac12\), \(\frac{\sqrt2}{2}\), \(\frac{\sqrt3}{2}\), 1. Cos adalah kebalikannya.</p></div>
+    <div class="rangkuman-item reveal"><h4><i class="fas fa-chart-pie"></i> Kuadran</h4><p>Kuadran I semua +, II sin +, III tan +, IV cos +.</p></div>
+    <div class="rangkuman-item reveal"><h4><i class="fas fa-wave-square"></i> Aturan Sinus</h4><p>\(\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}\).</p></div>
+    <div class="rangkuman-item reveal"><h4><i class="fas fa-ruler-combined"></i> Aturan Cosinus</h4><p>\(a^2=b^2+c^2-2bc\cos A\).</p></div>
+    <div class="rangkuman-item reveal"><h4><i class="fas fa-chart-area"></i> Luas Segitiga</h4><p>\(L=\frac12 ab\sin C\), atau Heron \(L=\sqrt{s(s-a)(s-b)(s-c)}\).</p></div>
+    <div class="rangkuman-item reveal"><h4><i class="fas fa-location-dot"></i> Koordinat</h4><p>Polar ke Cartesius: \(x=r\cos\alpha\), \(y=r\sin\alpha\). Cartesius ke polar: \(r=\sqrt{x^2+y^2}\).</p></div>
+    <div class="rangkuman-item reveal"><h4><i class="fas fa-ship"></i> Soal Perahu</h4><p>Jika dua jarak dan sudut apit diketahui, biasanya pakai aturan cosinus.</p></div>
   </div>
 
-  <div class="card reveal mt-4">
-    <div class="card-title"><i class="fas fa-route card-icon"></i> Peta Konsep Sederhana</div>
+  <div class="card reveal soft-card" style="margin-top:22px">
+    <div class="card-title"><i class="fas fa-bullseye card-icon"></i> Kesalahan yang Harus Dihindari</div>
     <div class="card-body">
-      <div class="flow-map">
-        <div class="flow-item">Pahami pengertian dasar trigonometri pada segitiga siku-siku</div>
-        <div class="flow-item">Kenali enam perbandingan trigonometri dasar (sin, cos, tan, csc, sec, cot)</div>
-        <div class="flow-item">Pelajari nilai trigonometri untuk sudut-sudut istimewa (30°, 45°, 60°)</div>
-        <div class="flow-item">Pahami nilai trigonometri di berbagai kuadran (sudut berelasi)</div>
-        <div class="flow-item">Pelajari Aturan Sinus untuk segitiga sembarang (AAS, ASA, SSA)</div>
-        <div class="flow-item">Pelajari Aturan Cosinus untuk segitiga sembarang (SAS, SSS)</div>
-        <div class="flow-item">Pahami cara menghitung luas segitiga dengan trigonometri dan rumus Heron</div>
-        <div class="flow-item">Pelajari konversi koordinat Cartesius ke koordinat kutub dan sebaliknya</div>
-        <div class="flow-item">Latih kemampuan dengan mengerjakan contoh soal dan latihan</div>
-        <div class="flow-item">Selalu cek kembali hasil akhir untuk memastikan kebenaran</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card reveal" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none;">
-    <div class="card-title" style="color: white;"><i class="fas fa-heart card-icon" style="background: rgba(255,255,255,0.2); color: white;"></i> Kesimpulan Besar</div>
-    <div class="card-body" style="color: #ffe4e4;">
-      <p>Trigonometri adalah cabang matematika yang sangat praktis dan banyak aplikasinya dalam kehidupan sehari-hari. Dari menghitung tinggi gedung, menentukan jarak di laut, hingga sistem navigasi GPS — semuanya menggunakan prinsip trigonometri.</p>
-      <p style="margin-top: 12px; font-weight: 700; color: white;">Kunci sukses:</p>
-      <ul style="color: #ffe4e4;">
-        <li>Jangan menghafal rumus tanpa memahami artinya.</li>
-        <li>Selalu gambar sketsa segitiga untuk memvisualisasikan masalah.</li>
-        <li>Perhatikan tanda positif/negatif saat bekerja dengan sudut di berbagai kuadran.</li>
-        <li>Pilih rumus yang tepat berdasarkan informasi yang diketahui (AAS, SAS, SSS, dll).</li>
-        <li>Kerjakan banyak latihan soal untuk memperkuat pemahaman.</li>
+      <ul class="checklist">
+        <li>Salah menentukan titik acuan sudut.</li>
+        <li>Menganggap sisi depan selalu di kiri atau di atas. Padahal tergantung sudut acuan.</li>
+        <li>Membalik nilai sin dan cos pada sudut istimewa.</li>
+        <li>Lupa tanda negatif saat masuk kuadran II, III, atau IV.</li>
+        <li>Langsung memakai aturan sinus/cosinus tanpa menggambar bentuk soalnya.</li>
       </ul>
-      <p style="margin-top: 16px; font-weight: 700; color: white; text-align: center;">Selamat belajar dan semoga sukses!</p>
     </div>
   </div>
 </section>
-
 </main>
 
-<!-- Back to top -->
+<footer class="footer">
+  <p>Matematika Semester 2 — Trigonometri</p>
+</footer>
+
 <button id="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></button>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Progress bar
   var progressBar = document.getElementById('progress-bar');
   function updateProgress() {
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -2222,99 +1172,63 @@ document.addEventListener('DOMContentLoaded', function() {
     progressBar.style.width = progress + '%';
   }
   window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
 
-  // Active nav link on scroll
-  var sections = document.querySelectorAll('section[id]');
-  var navLinks = document.querySelectorAll('.nav-links a');
-  var navObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        navLinks.forEach(function(link) {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + entry.target.id) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  }, { rootMargin: '-20% 0px -55% 0px', threshold: 0 });
-  sections.forEach(function(section) { navObserver.observe(section); });
-
-  // Mobile hamburger
   var hamburger = document.getElementById('hamburger');
   var navLinksContainer = document.getElementById('nav-links');
   hamburger.addEventListener('click', function() {
     navLinksContainer.classList.toggle('open');
   });
   navLinksContainer.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function() {
-      navLinksContainer.classList.remove('open');
-    });
+    link.addEventListener('click', function() { navLinksContainer.classList.remove('open'); });
   });
 
-  // Back to top
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a');
+  var navObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        navLinks.forEach(function(link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-25% 0px -60% 0px', threshold: 0 });
+  sections.forEach(function(section) { navObserver.observe(section); });
+
   var backToTop = document.getElementById('back-to-top');
   window.addEventListener('scroll', function() {
     if (window.scrollY > 600) backToTop.classList.add('visible');
     else backToTop.classList.remove('visible');
   }, { passive: true });
-  backToTop.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-  // Reveal animation
   var revealObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('active');
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.reveal').forEach(function(el) {
-    revealObserver.observe(el);
-  });
+  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
 
-
-  // Mobile safety: reveal fallback supaya elemen tidak "hilang" saat observer gagal
   function revealVisibleNow() {
     document.querySelectorAll('.reveal').forEach(function(el) {
       var r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight + 160 && r.bottom > -160) {
-        el.classList.add('active');
-      }
+      if (r.top < window.innerHeight + 180 && r.bottom > -180) el.classList.add('active');
     });
   }
   window.addEventListener('load', revealVisibleNow);
   window.addEventListener('scroll', revealVisibleNow, { passive: true });
   setTimeout(revealVisibleNow, 350);
 
-  // Pastikan rumus MathJax tidak memaksa body melebar
-  function fixMathOverflow() {
-    document.querySelectorAll('.math-scroll').forEach(function(box) {
-      box.style.maxWidth = '100%';
-      box.style.overflowX = 'auto';
-    });
-  }
-  window.addEventListener('load', fixMathOverflow);
-  setTimeout(fixMathOverflow, 1200);
-
-  // Focus mode
   var focusBtn = document.getElementById('focus-btn');
   focusBtn.addEventListener('click', function() {
     document.body.classList.toggle('focus-mode');
     var icon = focusBtn.querySelector('i');
-    if (document.body.classList.contains('focus-mode')) {
-      icon.classList.remove('fa-eye');
-      icon.classList.add('fa-eye-slash');
-      focusBtn.setAttribute('title', 'Matikan Mode Fokus');
-    } else {
-      icon.classList.remove('fa-eye-slash');
-      icon.classList.add('fa-eye');
-      focusBtn.setAttribute('title', 'Mode Fokus');
-    }
+    var isFocus = document.body.classList.contains('focus-mode');
+    icon.className = isFocus ? 'fas fa-eye-slash' : 'fas fa-eye';
+    focusBtn.setAttribute('title', isFocus ? 'Matikan Mode Fokus' : 'Mode Fokus');
   });
 
-  // Anti copy / drag / select
   function preventDefaultHandler(e) {
     var tag = e.target.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'BUTTON' || tag === 'A' || tag === 'SELECT') return;
@@ -2325,6 +1239,5 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('selectstart', preventDefaultHandler);
 });
 </script>
-
 </body>
 </html>
